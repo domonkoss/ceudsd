@@ -170,4 +170,5 @@ cat
 * Show the first 3 Helicopter incidents outside of Colorado
 * How many incidents did happen were cost is bigger than 0
 * In which Area did the most expensive incident happen that was caused by a Small bird?
-* Optional :) - Check (in google) and explain what regular expressions are, and how they could be used with grep
+* Optional - Check (in google) and explain what regular expressions are, and how they could be used with grep. Provide an example on how you would use it with birdstrikes
+
