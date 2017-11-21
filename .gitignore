@@ -1,0 +1,4 @@
+private/exercise_platform/mysql/db/*
+private/exercise_platform/zeppelin/notebook/*
+private/exercise_platform/zeppelin/logs/*
+
