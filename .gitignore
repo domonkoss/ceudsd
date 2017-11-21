@@ -2,4 +2,5 @@ private/exercise_platform/mysql/db/*
 private/exercise_platform/zeppelin/notebook/*
 private/exercise_platform/zeppelin/logs/*
 private/exercise_platform/influxdb/db/*
+private/exercise_platform/solr/mycores
 
