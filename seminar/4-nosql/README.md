@@ -166,10 +166,11 @@ HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?
 
 ## NEO4J
 
-In Neo4J the SELECT is called MATCH. One the simplest query is selecting 25 Officer nodes. 
+In Neo4J the SELECT is called MATCH.  
 
 #### Simple queries
 
+One of the simplest query is selecting 25 Officer nodes:
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
