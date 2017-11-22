@@ -136,8 +136,8 @@ $(document).ready(function () {
 <p>Now, let’s see the tables in this DB. In Influx tables are called “measurements”.</p>
 <pre><code>SHOW MEASUREMENTS</code></pre>
 <p>The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:</p>
-<pre><code>SHOW FIELD KEYS FROM h2o_feet
-SHOW TAG KEYS FROM h2o_feet</code></pre>
+<pre><code>SHOW FIELD KEYS FROM h2o_feet</code></pre>
+<pre><code>SHOW TAG KEYS FROM h2o_feet</code></pre>
 <p>Let’s see this in tabular format with values:</p>
 <pre><code>SELECT * FROM h2o_feet</code></pre>
 <p>LIMIT function:</p>
@@ -161,19 +161,21 @@ SHOW TAG KEYS FROM h2o_feet</code></pre>
 <p>Arithmetic SELECT:</p>
 <pre><code>SELECT (water_level * 2) + 4 from h2o_feet</code></pre>
 <p>Some statistical functions:</p>
-<pre><code>SELECT SPREAD(water_level) FROM h2o_feet
-
-SELECT STDDEV(water_level) FROM h2o_feet
-
-SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’</code></pre>
+<pre><code>SELECT SPREAD(water_level) FROM h2o_feet</code></pre>
+<pre><code>SELECT STDDEV(water_level) FROM h2o_feet</code></pre>
+<pre><code>SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’</code></pre>
 <div id="exercise" class="section level3">
 <h3><strong><em>Exercise</em></strong></h3>
 <p>HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?</p>
-<p><a name="solr"></a> ## SOLR</p>
-<p>SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. This is basically url calls from a browser.</p>
+<p><a name="solr"></a></p>
+</div>
+</div>
+<div id="solr" class="section level2">
+<h2>SOLR</h2>
+<p>SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.</p>
 <div id="simple-queries" class="section level4">
 <h4>Simple queries</h4>
-<p>The simplest query (the result is limited by default to 10)</p>
+<p>The simplest query (the result is limited by default to 10):</p>
 <pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*</code></pre>
 <p>Same query, but now limited to 3 results:</p>
 <pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;rows=3</code></pre>
@@ -186,7 +188,7 @@ SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
 </div>
 <div id="facests" class="section level4">
 <h4>Facests</h4>
-<p>Besides the expected result on q=<em>.</em> (first query), return the facets for “hour”</p>
+<p>Besides the expected result on q=<em>.</em> (first query), return the facets for “hour”:</p>
 <pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=hour&amp;facet=on&amp;q=*:*</code></pre>
 </div>
 <div id="ranges" class="section level4">
@@ -198,11 +200,10 @@ SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
 </div>
 <div id="fuzzy" class="section level4">
 <h4>Fuzzy</h4>
-<p>Show me the talinum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:</p>
+<p>Show me the tailnum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:</p>
 <pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&amp;facet=on&amp;q=tailnum:?2??jb&amp;rows=0</code></pre>
 <p>Show me destinations where the destination contains “ac” anywhere:</p>
 <pre><code>http://ceudsd.net/solr/dsdcore/select?fl=dest&amp;q=dest:ac~1</code></pre>
-</div>
 </div>
 <div id="exercise-1" class="section level3">
 <h3><strong><em>Exercise</em></strong></h3>

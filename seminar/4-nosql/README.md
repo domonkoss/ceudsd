@@ -106,7 +106,7 @@ SOLR has different connectors to programming languages. For simple query testing
 
 #### Simple queries
 
-The simplest query (the result is limited by default to 10)
+The simplest query (the result is limited by default to 10):
 ```
 http://ceudsd.net/solr/dsdcore/select?q=*:*
 ```
@@ -132,7 +132,7 @@ http://ceudsd.net/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
 #### Facests
-Besides the expected result on q=*.* (first query), return the facets for “hour”
+Besides the expected result on q=*.* (first query), return the facets for “hour”:
 ```
 http://ceudsd.net/solr/dsdcore/select?facet.field=hour&facet=on&q=*:*
 ```
@@ -149,7 +149,7 @@ http://ceudsd.net/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour
 ```
 
 #### Fuzzy
-Show me the talinum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:
+Show me the tailnum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:
 ```
 http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&facet=on&q=tailnum:?2??jb&rows=0
 ```
