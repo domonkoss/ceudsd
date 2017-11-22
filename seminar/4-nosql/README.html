@@ -123,8 +123,13 @@ $(document).ready(function () {
 
 <div id="nosql-exercises" class="section level1">
 <h1>NoSQL Exercises</h1>
+<p><a href="#influx">INFLUX</a><br />
+<a href="#solr">SOLR</a><br />
+<a href="#neo4j">NEO4J</a><br />
+<a href="#homework">HOMEWORK</a></p>
+<p><a name="influx"></a></p>
 <div id="influx" class="section level2">
-<h2>Influx</h2>
+<h2>INFLUX</h2>
 <p>Let’s explore the databases in this Influx DBMS:</p>
 <pre><code>SHOW DATABASES</code></pre>
 <p>Notice “NOAA_water_database” database in the list. Similar list you get, if you use the top banner database selector. Please select “NOAA_water_database” in this banner.</p>
@@ -164,12 +169,51 @@ SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
 <div id="exercise" class="section level3">
 <h3><strong><em>Exercise</em></strong></h3>
 <p>HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?</p>
+<p><a name="solr"></a> ## SOLR</p>
+<p>SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. This is basically url calls from a browser.</p>
+<div id="simple-queries" class="section level4">
+<h4>Simple queries</h4>
+<p>The simplest query (the result is limited by default to 10)</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*</code></pre>
+<p>Same query, but now limited to 3 results:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;rows=3</code></pre>
+<p>Same query, but the output is CSV:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;rows=3&amp;wt=csv</code></pre>
+<p>The first query, but requesting only one field of the document (year):</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;fl=year</code></pre>
+<p>The first query, but requesting only the fields starting with “d”:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;fl=d*</code></pre>
+</div>
+<div id="facests" class="section level4">
+<h4>Facests</h4>
+<p>Besides the expected result on q=<em>.</em> (first query), return the facets for “hour”</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=hour&amp;facet=on&amp;q=*:*</code></pre>
+</div>
+<div id="ranges" class="section level4">
+<h4>Ranges</h4>
+<p>Same query as before, but filter in only the hours between 0 and 6 and switch off the listing:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=hour&amp;facet=on&amp;q=hour:[0 TO 6]&amp;rows=0</code></pre>
+<p>Show me the first 10 results from 4 years to current time. Also return the facets for time_hour:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=time_hour&amp;facet=on&amp;q=time_hour:[NOW-4YEARS TO *]&amp;rows=10</code></pre>
+</div>
+<div id="fuzzy" class="section level4">
+<h4>Fuzzy</h4>
+<p>Show me the talinum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&amp;facet=on&amp;q=tailnum:?2??jb&amp;rows=0</code></pre>
+<p>Show me destinations where the destination contains “ac” anywhere:</p>
+<pre><code>http://ceudsd.net/solr/dsdcore/select?fl=dest&amp;q=dest:ac~1</code></pre>
+</div>
+</div>
+<div id="exercise-1" class="section level3">
+<h3><strong><em>Exercise</em></strong></h3>
+<p>HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?</p>
+<p><a name="neo4j"></a></p>
 </div>
 </div>
 <div id="neo4j" class="section level2">
 <h2>NEO4J</h2>
 <p>In Neo4J the SELECT is called MATCH. One the simplest query is selecting 25 Officer nodes.</p>
-<div id="simple-queries" class="section level4">
+<div id="simple-queries-1" class="section level4">
 <h4>Simple queries</h4>
 <pre><code>MATCH (n:Officer) 
 RETURN n LIMIT 25</code></pre>
@@ -216,46 +260,10 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient</code></pre>
 </div>
-<div id="exercise-1" class="section level3">
-<h3><strong><em>Exercise</em></strong></h3>
-<p>List the name and degree of the top 10 connected Officers from Romania.</p>
-</div>
-</div>
-<div id="solr" class="section level2">
-<h2>SOLR</h2>
-<p>SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. This is basically url calls from a browser.</p>
-<div id="simple-queries-1" class="section level4">
-<h4>Simple queries</h4>
-<p>The simplest query (the result is limited by default to 10)</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*</code></pre>
-<p>Same query, but now limited to 3 results:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;rows=3</code></pre>
-<p>Same query, but the output is CSV:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;rows=3&amp;wt=csv</code></pre>
-<p>The first query, but requesting only one field of the document (year):</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;fl=year</code></pre>
-<p>The first query, but requesting only the fields starting with “d”:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?q=*:*&amp;fl=d*</code></pre>
-</div>
-<div id="facests" class="section level4">
-<h4>Facests</h4>
-<p>Besides the expected result on q=<em>.</em> (first query), return the facets for “hour”</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=hour&amp;facet=on&amp;q=*:*</code></pre>
-<p>***Ranges Same query as before, but filter in only the hours between 0 and 6 and switch off the listing:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=hour&amp;facet=on&amp;q=hour:[0 TO 6]&amp;rows=0</code></pre>
-<p>Show me the first 10 results from 4 years to current time. Also return the facets for time_hour:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=time_hour&amp;facet=on&amp;q=time_hour:[NOW-4YEARS TO *]&amp;rows=10</code></pre>
-</div>
-<div id="fuzzy" class="section level4">
-<h4>Fuzzy</h4>
-<p>Show me the talinum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&amp;facet=on&amp;q=tailnum:?2??jb&amp;rows=0</code></pre>
-<p>Show me destinations where the destination contains “ac” anywhere:</p>
-<pre><code>http://ceudsd.net/solr/dsdcore/select?fl=dest&amp;q=dest:ac~1</code></pre>
-</div>
 <div id="exercise-2" class="section level3">
 <h3><strong><em>Exercise</em></strong></h3>
-<p>HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?</p>
+<p>List the name and degree of the top 10 connected Officers from Romania.</p>
+<p><a name="homework"></a></p>
 </div>
 </div>
 <div id="homework" class="section level2">
@@ -263,8 +271,8 @@ RETURN n as degree, count(DISTINCT r) AS clustering_coefficient</code></pre>
 <p>Use the datasets configured for each DB and create queries to solve the following tasks:</p>
 <p>INFLUX: HOW MUCH IS THE AVERAGE H2O TEMPERATURE BY LOCATION ?</p>
 <p>INFLUX: HOW MANY SAMPLES WE HAVE WEEKLY FOR H2O_TEMPERATURES?</p>
-<p>NEO4J: FIND THE ENTITIES RELATED TO OFFICERS NAMED “TUDOR” AND ALL NODES RELATED TO THIS ENTITIES.</p>
 <p>SOLR: HOW MANY “B6” CARRIERS WE GOT IF FILTER IN ONLY THE DESTINATIONS STARTING WITH LETTER “B”?</p>
+<p>NEO4J: FIND THE ENTITIES RELATED TO OFFICERS NAMED “TUDOR” AND ALL NODES RELATED TO THIS ENTITIES.</p>
 </div>
 </div>
 

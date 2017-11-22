@@ -1,6 +1,14 @@
 # NoSQL Exercises
 
-## Influx
+[INFLUX](#influx)  
+[SOLR](#solr)  
+[NEO4J](#neo4j)  
+[HOMEWORK](#homework)  
+
+
+<a name="influx"/>
+
+## INFLUX
 
 Let’s explore the databases in this Influx DBMS:
 ```
@@ -85,6 +93,7 @@ SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
 ### ***Exercise***
 HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
 
+<a name="solr"/>
 ## SOLR
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. This is basically url calls from a browser.
@@ -147,6 +156,7 @@ http://ceudsd.net/solr/dsdcore/select?fl=dest&q=dest:ac~1
 ### ***Exercise***
 HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?
 
+<a name="neo4j"/>
 
 ## NEO4J
 
@@ -229,6 +239,7 @@ RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 List the name and degree of the top 10 connected Officers from Romania.
 
 
+<a name="homework"/>
 
 ## HOMEWORK
 
