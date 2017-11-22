@@ -15,7 +15,7 @@ Now, let’s see the tables in this DB. In Influx tables are called “measureme
 SHOW MEASUREMENTS
 ```
 
-The columns here are called fields and tags. From your perspective there is no difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:
+The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:
 
 ```
 SHOW FIELD KEYS FROM h2o_feet
