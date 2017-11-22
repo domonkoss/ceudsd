@@ -2,7 +2,6 @@
 
 ## Influx
 
-
 Let’s explore the databases in this Influx DBMS:
 ```
 SHOW DATABASES
@@ -62,7 +61,11 @@ SELECT *  FROM h2o_feet WHERE location = 'santa_monica'
 Now a more advanced SELECT using time:
 
 ```
-SELECT COUNT(water_level) FROM h2o_feet WHERE time >= '2015-08-19T00:00:00Z' AND time <= '2015-08-27T17:00:00Z' AND location='coyote_creek' GROUP BY time(3d)
+SELECT COUNT(water_level) 
+  FROM h2o_feet WHERE time >= '2015-08-19T00:00:00Z' 
+  AND time <= '2015-08-27T17:00:00Z' 
+  AND location='coyote_creek' 
+  GROUP BY time(3d)
 ```
 
 Arithmetic SELECT:
@@ -73,178 +76,89 @@ SELECT (water_level * 2) + 4 from h2o_feet
 Some statistical functions:
 ```
 SELECT SPREAD(water_level) FROM h2o_feet
+
 SELECT STDDEV(water_level) FROM h2o_feet
+
 SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
 ```
 
+### ***Exercise***
+HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
 
-Let's set up our own user folder. Let's copy the birdstrikes file to our own directory:
-```
-pwd
-cd
-cp /home/backup/birdstrikes.csv ./
-ls
-ls -l
-```
 
-## Basic commands
 
-`cat` -
-Print the file to the screen.
+## NEO4J
+
+In Neo4J the SELECT is called MATCH. One the simplest query is selecting 25 Officer nodes. 
+
 ```
-cat birdstrikes.csv
+MATCH (n:Officer) 
+RETURN n LIMIT 25
 ```
 
-`less` -
-Explore the csv
+Same select but instead of node the node name is returned:
 ```
-less birdstrikes.csv
-```
-
-`head` -
-Print the first 20 lines to the file to the screen
-```
-head -n 20 birdstrikes.csv
+MATCH (n:Entity) 
+RETURN n.name LIMIT 25
 ```
 
-`man` -
-What is `-n`? Check it in the manual
+We can use WHERE clause to filter our result:
 ```
-man head
-```
-
-`tail` -
-Check the last 10 lines of the file
-```
-tail -n 10 birdstrikes.csv
+MATCH (o:Officer)
+WHERE o.countries CONTAINS 'Hungary'
+RETURN o
 ```
 
-`>` - Put the first 10 lines into an other file
+
+Double MATCH, find the officers from Hungary and the Entities linked to them:
 ```
-head -n 10 birdstrikes.csv > first10.csv
+MATCH (o:Officer) 
+WHERE o.countries CONTAINS 'Hungary'
+MATCH (o)-[r]-(c:Entity)
+RETURN o,r,c
 ```
 
-show the last line of the csv.
+A variation of the previous one, but here is link type is specified:
 ```
-tail -1 first10.csv
+MATCH (o:Officer) 
+WHERE o.countries CONTAINS 'Hungary'
+MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
+RETURN o,c
 ```
 
-* `|` -
-we can do this with 1 command
+Which country has to most nodes?
 ```
-head -n 5 birdstrikes.csv | tail -n 1
+MATCH (n:Officer) WHERE exists(n.countries)
+RETURN n.country_codes, count(*)
+ORDER BY count(*) DESC
+LIMIT 10
+```
+
+Find the Officers called "aliyev" and Entities related to them:
+```
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "aliyev"
+MATCH (o)-[r]-(c:Entity)
+RETURN o,r,c
+```
+
+Show the average degree by node type:
+```
+MATCH (n)
+WITH labels(n) AS type, size( (n)--() ) AS degree
+RETURN type, round(avg(degree)) AS avg
 ```
 
 ### ***Exercise***
-put the 5th line into the 5thline.csv
+List the name and degree of the top 10 connected Officers from Romania.
 
-## Filtering
 
-`grep` -
-Only show incidents from California
+Node analytics, calculate the degree and clustering_coefficient of a node:
 ```
-cat birdstrikes.csv | grep California 
-```
-
-`grep -v` -
-Only show incidents NOT with Airplanes
-```
-cat birdstrikes.csv | grep -v Airplane
+MATCH (a:Officer {name: "Portcullis TrustNet (Samoa) Limited"})--(b)
+WITH a, count(DISTINCT b) AS n
+MATCH (a)--()-[r]-()--(a)
+RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
 
-`grep -i` -
-Ignore case
-```
-cat birdstrikes.csv | grep -i airplane
-```
-
-## Others
-
-`wc` - show the line, word and character count of birdstrikes
-```
-wc birdstrikes.csv
-```
-
-```wc -l```
-shows only the line count
-
-### ***Exercise***
-
-* show the word, line and character count of the first 10 lines
-* how many incidents were in California (only output line count)
-
-## Cutting lines
-
-```
-cat birdstrikes.csv | cut -d ';' -f5
-```
-
-* `cut` - Display only the *aircraft* and the *flight_date* columns
-```
-cat birdstrikes.csv | cut -d ';' -f2,3
-```
-### ***Exercise***
-
-* Display only the *state* and the *bird size* columns of Airplane accidents
-
-`sort` -
-Sort this file
-```
-sort birdstrikes.csv
-```
-
-* `sort -k -t` -
-Sort by feet above ground, high values first
-```
-cat birdstrikes.csv | sort -k11 -t ';' -n -r | less
-```
-
-### ***Exercise***
-* Which was the most expensive incident?
-
-`sort | uniq` -
-What kind of bird sizes are there?
-```
-cat birdstrikes.csv | cut -d ';' -f9 | sort | uniq
-```
-
-### ***Exercise***
-In how many states did accidents happen?
-```
-cat birdstrikes.csv | cut -d ';' -f6 | sort | uniq | wc -l
-```
-
-* `uniq -c` -
-How many incidents were there by state?
-```
-cat birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
-```
-
-## Scripts
-
-* `bash script` - Write a script that gets the first column
-
-```
-# nano firstcolumn.sh
-
-cut -d ';' -f1
-
-# chmod a+x firstcolumn.sh
-# cat birdstrikes | ./firstcolumn.sh
-```
-
-* `bash` -
-script parameters
-```
-echo $1
-cat
-```
-
-## Homework
-
-* Print the number of lines in bridstrikes
-* Show the first 3 Helicopter incidents outside of Colorado
-* How many incidents did happen were cost is bigger than 0
-* In which Area did the most expensive incident happen that was caused by a Small bird?
-* Optional - Check (in google) and explain what regular expressions are, and how they could be used with grep. Provide an example on how you would use it with birdstrikes
 
