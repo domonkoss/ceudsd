@@ -149,9 +149,6 @@ WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
 
-### ***Exercise***
-List the name and degree of the top 10 connected Officers from Romania.
-
 
 Node analytics, calculate the degree and clustering_coefficient of a node:
 ```
@@ -160,5 +157,19 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
+
+### ***Exercise***
+List the name and degree of the top 10 connected Officers from Romania.
+
+
+## HOMEWORK
+
+Use the datasets configured for each DB and create queries to solve the following tasks:
+
+INFLUX: HOW MUCH IS THE AVERAGE H2O TEMPERATURE BY LOCATION ?
+INFLUX: HOW MANY SAMPLES WE HAVE WEEKLY FOR H2O_TEMPERATURES?
+
+NEO4J: FIND THE ENTITIES RELATED TO OFFICERS NAMED “TUDOR” AND ALL NODES RELATED TO THIS ENTITIES.
+
 
 
