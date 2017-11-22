@@ -91,6 +91,8 @@ HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
 
 In Neo4J the SELECT is called MATCH. One the simplest query is selecting 25 Officer nodes. 
 
+#### Simple queries
+
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
@@ -126,6 +128,8 @@ MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
 RETURN o,c
 ```
 
+#### Advenced queries
+
 Which country has to most nodes?
 ```
 MATCH (n:Officer) WHERE exists(n.countries)
@@ -133,6 +137,7 @@ RETURN n.country_codes, count(*)
 ORDER BY count(*) DESC
 LIMIT 10
 ```
+
 
 Find the Officers called "aliyev" and Entities related to them:
 ```
@@ -149,8 +154,9 @@ WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
 
+#### Node analytics
 
-Node analytics, calculate the degree and clustering_coefficient of a node:
+Calculate the degree and clustering_coefficient of a node:
 ```
 MATCH (a:Officer {name: "Portcullis TrustNet (Samoa) Limited"})--(b)
 WITH a, count(DISTINCT b) AS n
@@ -165,6 +171,8 @@ List the name and degree of the top 10 connected Officers from Romania.
 ## SOLR
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. This is basically url calls from a browser.
+
+#### Simple queries
 
 The simplest query (the result is limited by default to 10)
 ```
@@ -208,7 +216,7 @@ Show me the first 10 results from 4 years to current time. Also return the facet
 http://ceudsd.net/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-4YEARS TO *]&rows=10
 ```
 
-####Fuzzy
+#### Fuzzy
 Show me the talinum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:
 ```
 http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&facet=on&q=tailnum:?2??jb&rows=0
