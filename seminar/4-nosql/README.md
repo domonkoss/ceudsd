@@ -198,7 +198,7 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
 
-A variation of the previous one, but here is link type is specified:
+A variation of the previous one, but here the link type is specified:
 ```
 MATCH (o:Officer) 
 WHERE o.countries CONTAINS 'Hungary'
@@ -208,7 +208,7 @@ RETURN o,c
 
 #### Advenced queries
 
-Which country has to most nodes?
+Which country has the most nodes?
 ```
 MATCH (n:Officer) WHERE exists(n.countries)
 RETURN n.country_codes, count(*)
