@@ -1,6 +1,82 @@
-# Command Line Exercises
+# NoSQL Exercises
 
-## Setup
+## Influx
+
+
+Let’s explore the databases in this Influx DBMS:
+```
+SHOW DATABASES
+```
+
+Notice “NOAA_water_database” database in the list.  Similar list you get, if you use the top banner database selector. Please select “NOAA_water_database” in this banner.
+
+Now, let’s see the tables in this DB. In Influx tables are called “measurements”.
+
+```
+SHOW MEASUREMENTS
+```
+
+The columns here are called fields and tags. From your perspective there is no difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:
+
+```
+SHOW FIELD KEYS FROM h2o_feet
+SHOW TAG KEYS FROM h2o_feet
+```
+
+Let’s see this in tabular format with values:
+```
+SELECT * FROM h2o_feet
+```
+
+LIMIT function:
+```
+SELECT * FROM h2o_feet LIMIT 5
+```
+
+ORDER BY:
+```
+SELECT * FROM h2o_feet ORDER BY time DESC
+```
+
+SELECT specified columns:
+```
+SELECT location,water_level FROM h2o_feet
+```
+
+Check distinct values of the columns
+```
+SELECT DISTINCT(*)  FROM h2o_feet
+```
+
+Notice the location column is not there, because distinct can be done only on fields. “location” is tag. Distinct tag value can be listed for example by grouping. Here we used MEAN as aggregation function:
+
+```
+SELECT MEAN(water_level) FROM h2o_feet GROUP BY location
+```
+
+Let’s try a where clause:
+```
+SELECT *  FROM h2o_feet WHERE location = 'santa_monica'
+```
+
+Now a more advanced SELECT using time:
+
+```
+SELECT COUNT(water_level) FROM h2o_feet WHERE time >= '2015-08-19T00:00:00Z' AND time <= '2015-08-27T17:00:00Z' AND location='coyote_creek' GROUP BY time(3d)
+```
+
+Arithmetic SELECT:
+```
+SELECT (water_level * 2) + 4 from h2o_feet
+```
+
+Some statistical functions:
+```
+SELECT SPREAD(water_level) FROM h2o_feet
+SELECT STDDEV(water_level) FROM h2o_feet
+SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
+```
+
 
 Let's set up our own user folder. Let's copy the birdstrikes file to our own directory:
 ```
