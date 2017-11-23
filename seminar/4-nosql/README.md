@@ -153,7 +153,7 @@ http://ceudsd.net/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
 #### Facests
-Besides the expected result on q=*.* (first query), return the facets for “hour”:
+Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
 ```
 http://ceudsd.net/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
 ```
