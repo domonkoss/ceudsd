@@ -95,7 +95,7 @@ SELECT COUNT(water_level)
 
 Arithmetic SELECT:
 ```
-SELECT (water_level * 2) + 4 from h2o_feet
+SELECT (water_level * 2) + 4 from h2o_feet LIMIT 10
 ```
 
 Some statistical functions:

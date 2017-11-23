@@ -154,15 +154,15 @@ $(document).ready(function () {
 <p>LIMIT function:</p>
 <pre><code>SELECT * FROM h2o_feet LIMIT 5</code></pre>
 <p>ORDER BY:</p>
-<pre><code>SELECT * FROM h2o_feet ORDER BY time DESC</code></pre>
+<pre><code>SELECT * FROM h2o_feet ORDER BY time DESC LIMIT 10</code></pre>
 <p>SELECT specified columns:</p>
-<pre><code>SELECT location,water_level FROM h2o_feet</code></pre>
+<pre><code>SELECT location,water_level FROM h2o_feet LIMIT 10</code></pre>
 <p>Check distinct values of the columns</p>
 <pre><code>SELECT DISTINCT(*)  FROM h2o_feet</code></pre>
 <p>Notice the location column is not there, because distinct can be done only on fields. “location” is tag. Distinct tag value can be listed for example by grouping. Here we used MEAN as aggregation function:</p>
-<pre><code>SELECT MEAN(water_level) FROM h2o_feet GROUP BY location</code></pre>
+<pre><code>SELECT MEAN(water_level) FROM h2o_feet GROUP BY location </code></pre>
 <p>Let’s try a where clause:</p>
-<pre><code>SELECT *  FROM h2o_feet WHERE location = 'santa_monica'</code></pre>
+<pre><code>SELECT *  FROM h2o_feet WHERE location = 'santa_monica' LIMIT 10</code></pre>
 </div>
 <div id="advanced-data-exploration" class="section level4">
 <h4>Advanced Data Exploration</h4>
@@ -173,7 +173,7 @@ $(document).ready(function () {
   AND location='coyote_creek' 
   GROUP BY time(3d)</code></pre>
 <p>Arithmetic SELECT:</p>
-<pre><code>SELECT (water_level * 2) + 4 from h2o_feet</code></pre>
+<pre><code>SELECT (water_level * 2) + 4 from h2o_feet LIMIT 10</code></pre>
 <p>Some statistical functions:</p>
 <pre><code>SELECT SPREAD(water_level) FROM h2o_feet</code></pre>
 <pre><code>SELECT STDDEV(water_level) FROM h2o_feet</code></pre>
