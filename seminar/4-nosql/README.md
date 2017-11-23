@@ -106,7 +106,7 @@ SELECT SPREAD(water_level) FROM h2o_feet
 SELECT STDDEV(water_level) FROM h2o_feet
 ```
 ```
-SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’
+SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek'
 ```
 
 ### ***Exercise***

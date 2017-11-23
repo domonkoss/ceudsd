@@ -6,3 +6,4 @@ private/exercise_platform/solr/mycores
 private/exercise_platform/neo4j/data
 private/exercise_platform/neo4j/logs
 
+.Rproj.user
