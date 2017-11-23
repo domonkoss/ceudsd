@@ -57,12 +57,12 @@ SELECT * FROM h2o_feet LIMIT 5
 
 ORDER BY:
 ```
-SELECT * FROM h2o_feet ORDER BY time DESC
+SELECT * FROM h2o_feet ORDER BY time DESC LIMIT 10
 ```
 
 SELECT specified columns:
 ```
-SELECT location,water_level FROM h2o_feet
+SELECT location,water_level FROM h2o_feet LIMIT 10
 ```
 
 Check distinct values of the columns
@@ -73,12 +73,12 @@ SELECT DISTINCT(*)  FROM h2o_feet
 Notice the location column is not there, because distinct can be done only on fields. “location” is tag. Distinct tag value can be listed for example by grouping. Here we used MEAN as aggregation function:
 
 ```
-SELECT MEAN(water_level) FROM h2o_feet GROUP BY location
+SELECT MEAN(water_level) FROM h2o_feet GROUP BY location 
 ```
 
 Let’s try a where clause:
 ```
-SELECT *  FROM h2o_feet WHERE location = 'santa_monica'
+SELECT *  FROM h2o_feet WHERE location = 'santa_monica' LIMIT 10
 ```
 
 #### Advanced Data Exploration
