@@ -130,6 +130,12 @@ $(document).ready(function () {
 <p><a name="influx"></a></p>
 <div id="influx" class="section level2">
 <h2>INFLUX</h2>
+<div id="links-to-help-you" class="section level4">
+<h4>Links to help you</h4>
+<p><a href="https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/" class="uri">https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/</a></p>
+<p><a href="https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/" class="uri">https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/</a></p>
+<p><a href="https://docs.influxdata.com/influxdb/v1.0/query_language/functions/" class="uri">https://docs.influxdata.com/influxdb/v1.0/query_language/functions/</a></p>
+</div>
 <div id="schema-exploration" class="section level4">
 <h4>Schema exploration</h4>
 <p>Let’s explore the databases in this Influx DBMS:</p>
@@ -181,7 +187,12 @@ $(document).ready(function () {
 </div>
 <div id="solr" class="section level2">
 <h2>SOLR</h2>
+<div id="links-to-help-you-1" class="section level4">
+<h4>Links to help you</h4>
+<p><a href="https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser" class="uri">https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser</a></p>
+<p><a href="http://yonik.com/solr/query-syntax/" class="uri">http://yonik.com/solr/query-syntax/</a></p>
 <p>SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.</p>
+</div>
 <div id="simple-queries" class="section level4">
 <h4>Simple queries</h4>
 <p>The simplest query (the result is limited by default to 10):</p>
@@ -222,10 +233,15 @@ $(document).ready(function () {
 </div>
 <div id="neo4j" class="section level2">
 <h2>NEO4J</h2>
-<p>In Neo4J the SELECT is called MATCH.</p>
+<div id="links-to-help-you-2" class="section level4">
+<h4>Links to help you</h4>
+<p><a href="https://neo4j.com/developer/cypher-query-language/" class="uri">https://neo4j.com/developer/cypher-query-language/</a></p>
+<p><a href="http://neo4j.com/docs/developer-manual/current/cypher/" class="uri">http://neo4j.com/docs/developer-manual/current/cypher/</a></p>
+<p><a href="https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html" class="uri">https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html</a></p>
+</div>
 <div id="simple-queries-1" class="section level4">
 <h4>Simple queries</h4>
-<p>One of the simplest query is selecting 25 Officer nodes:</p>
+<p>In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes:</p>
 <pre><code>MATCH (n:Officer) 
 RETURN n LIMIT 25</code></pre>
 <p>Same select but instead of node the node name is returned:</p>

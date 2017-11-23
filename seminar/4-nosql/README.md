@@ -10,6 +10,15 @@
 
 ## INFLUX
 
+#### Links to help you
+https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/
+
+https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/
+
+https://docs.influxdata.com/influxdb/v1.0/query_language/functions/
+
+
+
 #### Schema exploration
 Let’s explore the databases in this Influx DBMS:
 ```
@@ -107,6 +116,12 @@ HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
 
 ## SOLR
 
+#### Links to help you
+https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser
+
+http://yonik.com/solr/query-syntax/
+
+
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.
 
 #### Simple queries
@@ -171,11 +186,21 @@ HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?
 
 ## NEO4J
 
-In Neo4J the SELECT is called MATCH.  
+#### Links to help you
+
+https://neo4j.com/developer/cypher-query-language/
+
+http://neo4j.com/docs/developer-manual/current/cypher/
+
+https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html
+
+
+
+ 
 
 #### Simple queries
 
-One of the simplest query is selecting 25 Officer nodes:
+In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes:
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
