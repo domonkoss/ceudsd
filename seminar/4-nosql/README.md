@@ -274,7 +274,7 @@ RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
 
 ### ***Exercise***
-List the name and degree of the top 10 connected Officers from Romania.
+List the name and degree of the top 10 most connected Officers from Romania.Tell me the no1.
 
 
 <a name="homework"/>
