@@ -10,6 +10,7 @@
 
 ## INFLUX
 
+#### Schema exploration
 Let’s explore the databases in this Influx DBMS:
 ```
 SHOW DATABASES
@@ -23,17 +24,19 @@ Now, let’s see the tables in this DB. In Influx tables are called “measureme
 SHOW MEASUREMENTS
 ```
 
-The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:
+The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names for all measurements:
 
 ```
-SHOW FIELD KEYS FROM h2o_feet
+SHOW FIELD KEYS 
 ```
 
 ```
-SHOW TAG KEYS FROM h2o_feet
+SHOW TAG KEYS 
 ```
 
-Let’s see this in tabular format with values:
+#### Data Exploration
+
+Simple SELECT:
 ```
 SELECT * FROM h2o_feet
 ```
@@ -69,7 +72,9 @@ Let’s try a where clause:
 SELECT *  FROM h2o_feet WHERE location = 'santa_monica'
 ```
 
-Now a more advanced SELECT using time:
+#### Advanced Data Exploration
+
+Now a more complicated SELECT using aggregation:
 
 ```
 SELECT COUNT(water_level) 

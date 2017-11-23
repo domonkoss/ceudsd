@@ -130,15 +130,20 @@ $(document).ready(function () {
 <p><a name="influx"></a></p>
 <div id="influx" class="section level2">
 <h2>INFLUX</h2>
+<div id="schema-exploration" class="section level4">
+<h4>Schema exploration</h4>
 <p>Let’s explore the databases in this Influx DBMS:</p>
 <pre><code>SHOW DATABASES</code></pre>
 <p>Notice “NOAA_water_database” database in the list. Similar list you get, if you use the top banner database selector. Please select “NOAA_water_database” in this banner.</p>
 <p>Now, let’s see the tables in this DB. In Influx tables are called “measurements”.</p>
 <pre><code>SHOW MEASUREMENTS</code></pre>
-<p>The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names:</p>
-<pre><code>SHOW FIELD KEYS FROM h2o_feet</code></pre>
-<pre><code>SHOW TAG KEYS FROM h2o_feet</code></pre>
-<p>Let’s see this in tabular format with values:</p>
+<p>The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names for all measurements:</p>
+<pre><code>SHOW FIELD KEYS </code></pre>
+<pre><code>SHOW TAG KEYS </code></pre>
+</div>
+<div id="data-exploration" class="section level4">
+<h4>Data Exploration</h4>
+<p>Simple SELECT:</p>
 <pre><code>SELECT * FROM h2o_feet</code></pre>
 <p>LIMIT function:</p>
 <pre><code>SELECT * FROM h2o_feet LIMIT 5</code></pre>
@@ -152,7 +157,10 @@ $(document).ready(function () {
 <pre><code>SELECT MEAN(water_level) FROM h2o_feet GROUP BY location</code></pre>
 <p>Let’s try a where clause:</p>
 <pre><code>SELECT *  FROM h2o_feet WHERE location = 'santa_monica'</code></pre>
-<p>Now a more advanced SELECT using time:</p>
+</div>
+<div id="advanced-data-exploration" class="section level4">
+<h4>Advanced Data Exploration</h4>
+<p>Now a more complicated SELECT using aggregation:</p>
 <pre><code>SELECT COUNT(water_level) 
   FROM h2o_feet WHERE time &gt;= '2015-08-19T00:00:00Z' 
   AND time &lt;= '2015-08-27T17:00:00Z' 
@@ -164,6 +172,7 @@ $(document).ready(function () {
 <pre><code>SELECT SPREAD(water_level) FROM h2o_feet</code></pre>
 <pre><code>SELECT STDDEV(water_level) FROM h2o_feet</code></pre>
 <pre><code>SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek’</code></pre>
+</div>
 <div id="exercise" class="section level3">
 <h3><strong><em>Exercise</em></strong></h3>
 <p>HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?</p>
@@ -213,9 +222,10 @@ $(document).ready(function () {
 </div>
 <div id="neo4j" class="section level2">
 <h2>NEO4J</h2>
-<p>In Neo4J the SELECT is called MATCH. One the simplest query is selecting 25 Officer nodes.</p>
+<p>In Neo4J the SELECT is called MATCH.</p>
 <div id="simple-queries-1" class="section level4">
 <h4>Simple queries</h4>
+<p>One of the simplest query is selecting 25 Officer nodes:</p>
 <pre><code>MATCH (n:Officer) 
 RETURN n LIMIT 25</code></pre>
 <p>Same select but instead of node the node name is returned:</p>
@@ -230,7 +240,7 @@ RETURN o</code></pre>
 WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c</code></pre>
-<p>A variation of the previous one, but here is link type is specified:</p>
+<p>A variation of the previous one, but here the link type is specified:</p>
 <pre><code>MATCH (o:Officer) 
 WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
@@ -238,7 +248,7 @@ RETURN o,c</code></pre>
 </div>
 <div id="advenced-queries" class="section level4">
 <h4>Advenced queries</h4>
-<p>Which country has to most nodes?</p>
+<p>Which country has the most nodes?</p>
 <pre><code>MATCH (n:Officer) WHERE exists(n.countries)
 RETURN n.country_codes, count(*)
 ORDER BY count(*) DESC
