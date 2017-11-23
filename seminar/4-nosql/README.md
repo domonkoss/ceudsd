@@ -155,7 +155,7 @@ http://ceudsd.net/solr/dsdcore/select?q=*:*&fl=d*
 #### Facests
 Besides the expected result on q=*.* (first query), return the facets for “hour”:
 ```
-http://ceudsd.net/solr/dsdcore/select?facet.field=hour&facet=on&q=*:*
+http://ceudsd.net/solr/dsdcore/select?facet.field=dest&facet=on&q=*:*
 ```
 
 #### Ranges 
