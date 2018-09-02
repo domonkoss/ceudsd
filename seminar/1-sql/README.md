@@ -8,13 +8,19 @@ Select all data
 
 `select * from birdstrikes`
 
+Select certain field
+
+`SELECT cost FROM birdstrikes`
+
+Select certain fields
+
+`SELECT bird_size, cost FROM birdstrikes`
+
 Select all & limit
 
 `SELECT * FROM birdstrikes LIMIT 10`
 
-Select certain fields
-
-`SELECT bird_size, cost FROM birdstrikes LIMIT 10`
+#TODO add verfication exercise with a different table
 
 ## Ordering data
 
