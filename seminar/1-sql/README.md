@@ -1,5 +1,8 @@
 # Basic SQL statements
 
+#TODO Now lets talk about data types and schema or you remember ...?
+
+
 ## Selecting data
 
 Select all data
@@ -20,17 +23,17 @@ Select all & limit
 
 `SELECT * FROM birdstrikes LIMIT 10`
 
-#TODO add verfication exercise with a different table
+#TODO add verfication exercise with a different table and LIMIT
 
 ## Ordering data
 
 Order by a field
 
-`SELECT state, cost FROM birdstrikes ORDER BY cost LIMIT 10`
+`SELECT state, cost FROM birdstrikes ORDER BY cost`
 
 Order by a multiple fields
 
-`SELECT state, cost FROM birdstrikes ORDER BY state, cost LIMIT 10`
+`SELECT state, cost FROM birdstrikes ORDER BY state, cost ASC`
 
 Reverse ordering
 
@@ -40,17 +43,39 @@ Reverse ordering by multple fields
 
 `SELECT state, cost FROM birdstrikes ORDER BY state DESC, cost`
 
-## Renaming fields in the output
-`SELECT bird_size as size, state FROM birdstrikes`
+## Select uniques values of a column
 
-### Note: Our Zeppelin exercise platform seemingly limits this functionality.
+`SELECT DISTINCT bird_size FROM birdstrikes`
+
+### Selecting unique pairs
+
+`SELECT DISTINCT state, bird_size FROM birdstrikes`
+
 
 ## Filtering data
+
 Filter by field value
+
+= equal
+!= equal
+<> not equal
+< less than
+> greater than
+<= less than or equal to
+>= greater than or equal to
 
 `SELECT * FROM birdstrikes WHERE state = 'Alabama'`
 
+Notice that the WHERE clause always comes after the FROM statement!
+
 Filter by multiple conditions
+
+
+#TODO filter numbers
+#TODO filter dates
+#TODO ranges BETWEEN, IN
+#TODO explain more detailed AND AND OR
+#TODO more advanced logical combinations with paranthesis
 
 `SELECT * FROM birdstrikes WHERE state = 'Alabama' AND bird_size = 'Small'`
 
@@ -68,13 +93,9 @@ String operations:
 
 `SELECT state FROM birdstrikes WHERE state LIKE 'A%'`
 
-## Removing duplicates
+#TODO NOT LIKE
 
-`SELECT DISTINCT bird_size FROM birdstrikes`
-
-### Selecting unique pairs
-
-`SELECT DISTINCT state, bird_size FROM birdstrikes`
+#TODO IS NULL, IS NOT NULL
 
 ### Exercise: How do you filter out all records which have no state or no bird_size specified?
 
@@ -100,7 +121,12 @@ Countint the number of records
 
 `SELECT COUNT(*) FROM birdstrikes`
 
+#TODO SELECT DISTINCT COUNT
+
 Simple aggregations
+
+#TODO SUM
+
 
 `SELECT MAX(cost) FROM birdstrikes`
 
@@ -120,7 +146,18 @@ Let's fix it:
 You can filter here, too:
 `SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft`
 
+#TODO arithmetic SELECT 45 / 10 * 100.0;
+#Aliasing
+
+
 Advanced groupping - HAVING
+
+In SQL, aggregate functions can't be used in WHERE clauses. For example, the following query is invalid:
+
+`SELECT state, COUNT(*) FROM birdstrikes GROUP BY state WHERE COUNT(*) > 100`
+
+but we can use HAVING:
+
 `SELECT state, COUNT(*) FROM birdstrikes GROUP BY state HAVING COUNT(*) > 100`
 
 `SELECT state, COUNT(*) FROM birdstrikes
