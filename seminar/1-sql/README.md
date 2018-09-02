@@ -6,6 +6,8 @@ Select all data
 
 `SELECT * FROM birdstrikes`
 
+`select * from birdstrikes`
+
 Select all & limit
 
 `SELECT * FROM birdstrikes LIMIT 10`
