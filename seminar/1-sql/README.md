@@ -190,7 +190,7 @@ Works with integers as well
 
 
 
-## HOMEWORK! (Send solution to sallol@ceu.edu AND molnarszi@ceu.edu)
+## HOMEWORK! (Submit to moodle by 25th of September 21:00)
 
 * List all incidents related by airline name to "America" and which happened 18 years from the execution of the query and where the bird implicated was small or medium or at least the cost was less than 1000. Send us the query.
 
