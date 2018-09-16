@@ -51,11 +51,13 @@ Reverse ordering by multple fields
 
 ## Select uniques values of a column
 
-`SELECT DISTINCT bird_size FROM birdstrikes`
+`SELECT DISTINCT damage FROM birdstrikes`
 
 ### Selecting unique pairs
 
-`SELECT DISTINCT state, bird_size FROM birdstrikes`
+`SELECT DISTINCT airline, damage FROM birdstrikes`
+
+### Exercise: What was the cost of the 100th most expensive damage?
 
 
 ## Filtering data
