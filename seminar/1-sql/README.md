@@ -96,8 +96,6 @@ Select the lines where states is not Alabama
 
 `SELECT * FROM birdstrikes WHERE state != 'Alabama'`
 
-#### LIKE
-
 States starting with 'A'
 
 `SELECT DISTINCT state FROM birdstrikes WHERE state LIKE 'A%'`
@@ -147,7 +145,7 @@ Date is less than "2000-01-02"
 `SELECT * FROM birdstrikes WHERE flight_date < "2000-01-02"`
 
 
-#### NULL OPERATIONS
+#### NULL 
 
 `SELECT * FROM birdstrikes WHERE speed IS NULL`
 
@@ -192,15 +190,10 @@ Works with integers as well
 
 
 
+## HOMEWORK! (Send solution to sallol@ceu.edu AND molnarszi@ceu.edu)
 
+*Select the first 3 incidents related by airline name to "America" and which happend 18 years from the execution of the query and birdsize is small or medium or at least the cost is less than 1000. Send us the query.
 
+*Order the previous query by cost in desceding order and limit to 10 entries. Send us the "Id" the "bird_size" of the 9th entry?
 
-
-
-## HOMEWORK!
-
-* What's the maximum overall cost
-  * In which state did this accident happen?
-* Display the first three states in alphabetical order
-* What is the size of the bird that caused the biggest damage in Missouri?
 
