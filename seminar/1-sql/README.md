@@ -29,7 +29,7 @@ Select all & limit
 
 `SELECT * FROM birdstrikes LIMIT 10`
 
-### Exercise: What airline and state figures in the 145th line of our database?
+### Exercise1: What airline and state figures in the 145th line of our database?
 
 ## Ordering data
 
@@ -49,6 +49,8 @@ Reverse ordering by multple fields
 
 `SELECT state, cost FROM birdstrikes ORDER BY state DESC, cost`
 
+### Exercise2: What is the date the newest birstrikes in this database?
+
 ## Select uniques values of a column
 
 `SELECT DISTINCT damage FROM birdstrikes`
@@ -57,26 +59,58 @@ Reverse ordering by multple fields
 
 `SELECT DISTINCT airline, damage FROM birdstrikes`
 
-### Exercise: What was the cost of the 100th most expensive damage?
+### Exercise3: What was the cost of the 100th most expensive damage?
 
 
 ## Filtering data
 
 Filter by field value
 
-= equal
-!= equal
-<> not equal
-< less than
-> greater than
-<= less than or equal to
->= greater than or equal to
+`=` equal
 
+`<>` not equal (standard SQL)
+
+`!=` equal
+
+`<` less than
+
+`>` greater than
+
+`<=` less than or equal to
+
+`>=` greater than or equal to
+
+#### VARCHAR
 `SELECT * FROM birdstrikes WHERE state = 'Alabama'`
 
-Notice that the WHERE clause always comes after the FROM statement!
+`SELECT * FROM birdstrikes WHERE state != 'Alabama'`
+
+#### INT
+
+SELECT * FROM birdstrikes WHERE speed = 350
+
+SELECT * FROM birdstrikes WHERE speed >= 25000
+
+#### DATE
+
+SELECT * FROM birdstrikes WHERE flight_date = "2000-01-02"
+
+SELECT * FROM birdstrikes WHERE flight_date < "2000-01-02"
+
+
+
+
+
 
 Filter by multiple conditions
+
+`SELECT * FROM birdstrikes WHERE state = 'Alabama' AND bird_size = 'Small'`
+
+`SELECT * FROM birdstrikes WHERE state = 'Alabama' OR state = 'Missouri'`
+
+`SELECT * FROM birdstrikes WHERE state IN ('Alabama', 'Missouri')`
+
+
 
 
 #TODO filter numbers
@@ -85,13 +119,7 @@ Filter by multiple conditions
 #TODO explain more detailed AND AND OR
 #TODO more advanced logical combinations with paranthesis
 
-`SELECT * FROM birdstrikes WHERE state = 'Alabama' AND bird_size = 'Small'`
 
-`SELECT * FROM birdstrikes WHERE state = 'Alabama' OR state = 'Missouri'`
-
-`SELECT * FROM birdstrikes WHERE state IN ('Alabama', 'Missouri')`
-
-`SELECT * FROM birdstrikes WHERE state != 'Alabama'`
 
 String operations:
 
