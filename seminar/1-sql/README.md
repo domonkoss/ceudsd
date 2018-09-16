@@ -1,7 +1,13 @@
 # Basic SQL statements
 
-#TODO Now lets talk about data types and schema or you remember ...?
 
+List the table(s) of your database
+
+`SHOW TABLES`
+
+List the structure of a table
+
+`DESCRIBE birdstrikes`
 
 ## Selecting data
 
