@@ -192,7 +192,7 @@ Works with integers as well
 
 ## HOMEWORK! (Send solution to sallol@ceu.edu AND molnarszi@ceu.edu)
 
-*Select the first 3 incidents related by airline name to "America" and which happend 18 years from the execution of the query and birdsize is small or medium or at least the cost is less than 1000. Send us the query.
+*List all incidents related by airline name to "America" and which happend 18 years from the execution of the query and where the bird implicated was small or medium or at least the cost was less than 1000. Send us the query.
 
 *Order the previous query by cost in desceding order and limit to 10 entries. Send us the "Id" the "bird_size" of the 9th entry?
 
