@@ -49,13 +49,13 @@ Reverse ordering
 
 `SELECT state, cost FROM birdstrikes ORDER BY cost DESC`
 
-Reverse ordering by multple fields
+Reverse ordering by multiple fields
 
 `SELECT state, cost FROM birdstrikes ORDER BY state DESC, cost`
 
 ### Exercise 2: What is the date the newest birstrikes in this database?
 
-## Select uniques values 
+## Select unique values 
 
 Of a column
 
@@ -100,7 +100,7 @@ States starting with 'A'
 
 `SELECT DISTINCT state FROM birdstrikes WHERE state LIKE 'A%'`
 
-Note the case insensivity
+Note the case (in)sensitivity
 
 `SELECT DISTINCT state FROM birdstrikes WHERE state LIKE 'a%'`
 
@@ -108,7 +108,7 @@ States starting with 'ala'
 
 `SELECT DISTINCT state FROM birdstrikes WHERE state LIKE 'ala%'`
 
-States starting with 'North ' followed by any charachter, followed by an 'a', followed by anything
+States starting with 'North ' followed by any character, followed by an 'a', followed by anything
 
 `SELECT DISTINCT state FROM birdstrikes WHERE state LIKE 'North _a%'`
 
@@ -176,7 +176,7 @@ What if i need 'Alabama', 'Missouri','New York','Alaska'? Should we concatenate 
 
 ## BETWEEN
 
-All enties where flight_date is between "2000-01-01" AND "2000-01-03"
+All entries where flight_date is between "2000-01-01" AND "2000-01-03"
 
 `SELECT * FROM birdstrikes WHERE flight_date >= '2000-01-01' AND flight_date <= '2000-01-03'`
 
@@ -192,8 +192,8 @@ Works with integers as well
 
 ## HOMEWORK! (Send solution to sallol@ceu.edu AND molnarszi@ceu.edu)
 
-*List all incidents related by airline name to "America" and which happend 18 years from the execution of the query and where the bird implicated was small or medium or at least the cost was less than 1000. Send us the query.
+* List all incidents related by airline name to "America" and which happened 18 years from the execution of the query and where the bird implicated was small or medium or at least the cost was less than 1000. Send us the query.
 
-*Order the previous query by cost in desceding order and limit to 10 entries. Send us the "Id" the "bird_size" of the 9th entry?
+* Order the previous query by cost in descending order and limit to 10 entries. Send us the "id" the "bird_size" of the 9th entry?
 
 
