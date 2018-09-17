@@ -76,7 +76,7 @@ Filter by field value
 
 `<>` not equal (standard SQL)
 
-`!=` equal
+`!=` not equal
 
 `<` less than
 
