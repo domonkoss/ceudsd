@@ -6,7 +6,7 @@ Counting the number of records
 
 `SELECT COUNT(*) FROM birdstrikes`
 
-### Exercise 0: Let's find a column where we have nulls. How you do that?
+### Exercise 1: Let's find a column where we have nulls. How you do that?
 
 Says 'state' can be NULL, so let's try:
 
@@ -28,7 +28,7 @@ Count number of distinct states
 
 `SELECT COUNT(DISTINCT(state)) FROM birdstrikes`
 
-### Exercise 1: How many distinct 'aircraft' we have in the database?
+### Exercise 2: How many distinct 'aircraft' we have in the database?
 
 ## MAX, AVG, SUM
 
@@ -61,7 +61,7 @@ How many observation days we have in birdstrikes
 `SELECT DATEDIFF(MAX(reported_date),MIN(reported_date)) from birdstrikes`
 
 
-### Exercise 2: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename to 'lowest_speed'
+### Exercise 3: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename to 'lowest_speed'
 
 
 ## GROUP BY
@@ -72,8 +72,8 @@ What is the lowest for the rest of the aircraft?
 
 `SELECT AVG(cost), COUNT(*), phase_of_flight aircraft from birdstrikes group by phase_of_flight`
 
-### Exercise 3: Which phase_of_flight has the least of incidents? 
-### Exercice 4: What is the highest average cost by phase_of_flight?
+### Exercise 4: Which phase_of_flight has the least of incidents? 
+### Exercice 5: What is the highest average cost by phase_of_flight?
 
 Multiple aggregate functions
 
@@ -87,7 +87,7 @@ Let's fix it:
 
 ## HAVING
 
-### Exercise 5: >>SELECT AVG(speed),state FROM birdstrikes GROUP BY state<< what is the result of this query
+### Exercise 6: >>SELECT AVG(speed),state FROM birdstrikes GROUP BY state<< what is the result of this query
 
 What if I want AVG speed for states which has 'island' on their name:
 
@@ -98,7 +98,7 @@ Crashbummbang! The correct keyword after GROUP BY is HAVING
 `SELECT AVG(speed),state FROM birdstrikes GROUP BY state HAVING state LIKE '%island%'`
 
 
-### Exercise  6: What the highest AVG speed of the states with names less than 5 characters?
+### Exercise  7: What the highest AVG speed of the states with names less than 5 characters?
 
 
 # Writing data into the Database
