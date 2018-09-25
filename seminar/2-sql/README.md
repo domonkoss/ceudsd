@@ -16,7 +16,7 @@ Let's try 'reported_date'
 
 `SELECT reported_date FROM birdstrikes WHERE reported_date IS NULL`
 
-Now let's count 'reported_date'. The result is les than COUNT(*) because COUNT is not counting the NULLs
+Now let's count 'reported_date'.  COUNT(*) > COUNT(reported_date) why? 
 
 `SELECT COUNT(reported_date) FROM birdstrikes`
 
