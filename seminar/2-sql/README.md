@@ -1,4 +1,4 @@
-#Altering your data
+# Altering your data
 
 Updating some records
 
@@ -8,36 +8,42 @@ Deleting some records
 
 `DELETE FROM birdstrikes WHERE aircraft = 'Unknown'`
 
+## Groupping and aggregation
 
-#Groupping and aggregation
+## COUNT
 
-Countint the number of records
+Counting the number of records
 
-SELECT COUNT(*) FROM birdstrikes
+`SELECT COUNT(*) FROM birdstrikes`
 
-Simple aggregations
+Now let's find a column where we have nulls. How you do that?
 
-SELECT MAX(cost) FROM birdstrikes
+`DESCRIBE birdstrikes`
 
-SELECT state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state ORDER BY state
+Says 'state' can be NULL, so let's try:
 
-# Aggregation and grouping
+`SELECT state FROM birdstrikes WHERE state IS NULL`
 
-Multiple aggregate functions:
+Let's try 'reported_date'
 
-SELECT state, aircraft, COUNT(*), MAX(cost), MIN(cost), AVG(cost) FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft
+`SELECT reported_date FROM birdstrikes WHERE reported_date IS NULL`
 
-Sometimes it doesn't work:
+Now let's count 'reported_date'
 
-SELECT aircraft, state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state ORDER BY state
+`SELECT COUNT(reported_date) FROM birdstrikes`
 
-Let's fix it: SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state, aircraft ORDER BY state, aircraft
+How do we list the distinct states ?
 
-You can filter here, too: SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft
+`SELECT DISTINCT(state) FROM birdstrikes`
 
-Advanced groupping - HAVING SELECT state, COUNT(*) FROM birdstrikes GROUP BY state HAVING COUNT(*) > 100
+Count number of distinct states
 
-SELECT state, COUNT(*) FROM birdstrikes WHERE state != '' GROUP BY state HAVING COUNT(*) > 100
+`SELECT COUNT(DISTINCT(state)) FROM birdstrikes`
+
+### Exercise 1: How many distinct 'aircraft' we have in the database?
+
+
+
 
 
 # A bit more advanced SQL
