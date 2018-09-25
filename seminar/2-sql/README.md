@@ -1,13 +1,3 @@
-# Altering your data
-
-Updating some records
-
-`UPDATE birdstrikes SET aircraft='Unknown' WHERE aircraft = ''`
-
-Deleting some records
-
-`DELETE FROM birdstrikes WHERE aircraft = 'Unknown'`
-
 ## Groupping and aggregation
 
 ## COUNT
@@ -16,9 +6,7 @@ Counting the number of records
 
 `SELECT COUNT(*) FROM birdstrikes`
 
-Now let's find a column where we have nulls. How you do that?
-
-`DESCRIBE birdstrikes`
+### Exercise 0: Let's find a column where we have nulls. How you do that?
 
 Says 'state' can be NULL, so let's try:
 
@@ -80,23 +68,37 @@ How many observation days we have in birdstrikes
 
 What is the lowest for the rest of the aircraft?
 
-SELECT MIN(speed), aircraft from birdstrikes group by aircraft
+`SELECT MIN(speed), aircraft from birdstrikes group by aircraft`
+
+`SELECT AVG(cost), COUNT(*), phase_of_flight aircraft from birdstrikes group by phase_of_flight`
+
+### Exercise 3: Which phase_of_flight has the least of incidents? 
+### Exercice 4: What is the highest average cost by phase_of_flight?
+
+
+## HAVING
+
+### Exercice 5: >>SELECT AVG(speed),state FROM birdstrikes GROUP BY state<< what is the result of this query
+
+What if I want AVG speed for states which has 'island' on their name:
+
+SELECT AVG(speed),state FROM birdstrikes GROUP BY state WHERE state LIKE '%island%'
+
+Crashbummbang! The correct keyword after GROUP BY is HAVING
+
+SELECT AVG(speed),state FROM birdstrikes GROUP BY state HAVING state LIKE '%island%'
+
+
+### Exercice 6: What the highest AVG speed of the states with names less than 5 characters?
 
 
 
 
 
-# A bit more advanced SQL
+# Altering your data
 
-## Group by revisited
 
-## Groupping and aggregation
 
-`SELECT state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state`
-
-`SELECT aircraft, state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state`
-
-**Note: Check Slides**
 
 ## Create tables
 
@@ -108,100 +110,21 @@ SELECT MIN(speed), aircraft from birdstrikes group by aircraft
 
 `DROP TABLE group`
 
-## Data types
 
-`CREATE TABLE group (ID INTEGER NOT NULL, group_name VARCHAR(255) NOT NULL)`
 
-`INSERT INTO group (ID,group_name) VALUES ('111','Admin')`
 
-**Data types**
+Updating some records
 
-* Numeric
-* Date and time
-* String (or binary)
+`UPDATE birdstrikes SET aircraft='Unknown' WHERE aircraft = ''`
 
-**Workshop**
-- check in Google roughly how many sub-types are there in each category (in MySQL)
-- Delete your User table
-- Re-create the User table with an additional birthdate columns (ID, user_name, birth_date) (not-null any of the columns)
-- Insert a record in the table specifying a date field (user_id = 100)
-- Let us know, when ready - we will check 
+Deleting some records
 
-## Primary Key (and indexes)
+`DELETE FROM birdstrikes WHERE aircraft = 'Unknown'`
+
 
 `CREATE TABLE User (ID INTEGER NOT NULL, USERNAME VARCHAR(255) NOT NULL)`
 
 `CREATE TABLE User (ID INTEGER NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY(ID))`
 
-## Join tables
 
-```
-A    B
--    -
-1    3
-2    4
-3    5
-4    6
-```
 
-* INNER JOIN
-
-```
-a | b
---+--
-3 | 3
-4 | 4
-```
-
-* LEFT OUTER JOIN
-```
-a |  b
---+-----
-1 | null
-2 | null
-3 |    3
-4 |    4
-```
-
-* RIGHT OUTER JOIN
-* FULL OUTER JOIN
-
-**Workshop**
-- Google: how to modify a table to add a column
-- Modify the Group table to add a user_id column (ID, group_name, user_id)
-- Insert a record with group_id = 111, user_id = 100
-- Create a Select query that shows all users from the Group with ID 111
-
-## Relations
-
-**Note: Check Slides**
-
-## Load CSV into table
-
-```
-DELETE from birdstrikes
-```
-
-```
-LOAD DATA INFILE '/var/lib/mysql-files/birdstrikes.csv' 
-INTO TABLE birdstrikes 
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\n' IGNORE 1 LINES
-(id, aircraft, flight_date, damage, airline, state, phase_of_flight, @v_reported_date, bird_size, cost, @v_speed)
-set
-reported_date = nullif(@v_reported_date, ''),
-speed = nullif(@v_speed, '');
-```
-
-## Homework
-* Create a table called `airline`
-* * (`ID`, `airline_name`)
-* * ID - should be an automatically incremented integer ID (google it how to do it)
-* Populate this table with all airlines from birdstrikes
-* * Hint: google "INSERT SELECT mysql"
-* Add a column `airline_id` to birdstrikes
-* Update birdstrikes.airline_id to use the IDs from this new airlines table
-* * Hint: google "UPDATE JOIN"
-* Delete the birdstrikes.airline column
-* Write a `JOIN` statement to join the 2 tables and see the result in the same way as was originally in the `birdstrikes` table
-* explain why it is good that we have a different airline table
