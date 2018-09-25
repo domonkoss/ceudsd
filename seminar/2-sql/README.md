@@ -8,7 +8,7 @@ Counting the number of records
 
 ### Exercise 1: Let's find a column in birdstrikes where we have nulls. How you do that?
 
-Says 'state' can be NULL, so let's try:
+Let's check if in 'state' we actually have NULL or not
 
 `SELECT state FROM birdstrikes WHERE state IS NULL`
 
