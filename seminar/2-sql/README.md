@@ -64,6 +64,14 @@ Speed in this database is measured in KNOTS. Let's transform to KMH. 1 KNOT = 1.
 
 `SELECT (AVG(speed)*1.852) as avg_kmh FROM birdstrikes`
 
+Aggregation with dates
+
+`SELECT MIN(reported_date),MAX(reported_date) from birdstrikes`
+
+How many observation days we have in birdstrikes
+
+`SELECT DATEDIFF(MAX(reported_date),MIN(reported_date)) from birdstrikes`
+
 
 ### Exercise 2: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename to 'lowest_speed'
 
