@@ -122,7 +122,7 @@ Crashbummbang! The correct keyword after GROUP BY is HAVING
 
 `DESCRIBE employee`
 
-## INSERT
+## INSERT LINE
 
 Insert lines in employee table one by one
 
@@ -140,7 +140,7 @@ What happens if you try this (and why)?
 
 `INSERT INTO employee (id,employee_name) VALUES(3,'Student4')`
 
-## UPDATE
+## UPDATE LINE
 
 Updating some records
 
@@ -152,7 +152,7 @@ Let's check the results
 
 `SELECT * FROM employee`
 
-## DELETE 
+## DELETE LINE
 
 Deleting some records
 
