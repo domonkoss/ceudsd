@@ -127,8 +127,11 @@ Crashbummbang! The correct keyword after GROUP BY is HAVING
 Insert lines in employee table one by one
 
 `INSERT INTO employee (id,employee_name) VALUES(1,'Student1')`
+
 `INSERT INTO employee (id,employee_name) VALUES(2,'Student2')`
+
 `INSERT INTO employee (id,employee_name) VALUES(3,'Student3')`
+
 `INSERT INTO employee (id,employee_name) VALUES(3,'Student4')`
 
 Let's check the results
@@ -140,6 +143,7 @@ Let's check the results
 Updating some records
 
 `UPDATE employee SET employee_name='Arnold Schwarzenegger' WHERE id = '1'`
+
 `UPDATE employee SET employee_name='The Other Arnold' WHERE id = '2'`
 
 Let's check the results
