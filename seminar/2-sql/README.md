@@ -162,5 +162,9 @@ Deleting some records
 
 `DROP TABLE employee`
 
+# HOMEWORK! (Submit to moodle by 2nd of October 21:00)
+
+* 
+
 
 
