@@ -75,6 +75,15 @@ What is the lowest for the rest of the aircraft?
 ### Exercise 3: Which phase_of_flight has the least of incidents? 
 ### Exercice 4: What is the highest average cost by phase_of_flight?
 
+Multiple aggregate functions
+
+`SELECT state, aircraft, COUNT(*), MAX(cost), MIN(cost), AVG(cost) FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft`
+
+`SELECT aircraft, state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state ORDER BY state`
+
+Let's fix it:
+
+`SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state, aircraft ORDER BY state, aircraft`
 
 ## HAVING
 
@@ -82,49 +91,68 @@ What is the lowest for the rest of the aircraft?
 
 What if I want AVG speed for states which has 'island' on their name:
 
-SELECT AVG(speed),state FROM birdstrikes GROUP BY state WHERE state LIKE '%island%'
+`SELECT AVG(speed),state FROM birdstrikes GROUP BY state WHERE state LIKE '%island%'`
 
 Crashbummbang! The correct keyword after GROUP BY is HAVING
 
-SELECT AVG(speed),state FROM birdstrikes GROUP BY state HAVING state LIKE '%island%'
+`SELECT AVG(speed),state FROM birdstrikes GROUP BY state HAVING state LIKE '%island%'`
 
 
 ### Exercice 6: What the highest AVG speed of the states with names less than 5 characters?
 
 
 
+# Data write
+
+## COPY TABLE
+`CREATE TABLE new_birdstrikes LIKE birdstrikes`
+
+`SHOW TABLES`
+
+`DESCRIBE new_birdstrikes`
+
+## DELETE TABLE 
+
+`DROP TABLE new_birdstrikes`
 
 
-# Altering your data
+## CREATE TABLE
 
+`CREATE TABLE employee (id INTEGER NOT NULL, employee_name VARCHAR(255) NOT NULL, PRIMARY KEY(id))`
 
+`DESCRIBE employee`
 
+## INSERT
 
-## Create tables
+Insert lines in employee table one by one
 
-`CREATE TABLE group (ID INTEGER NOT NULL, group_name VARCHAR(255) NOT NULL)`
+`INSERT INTO employee (id,employee_name) VALUES(1,'Student1')`
+`INSERT INTO employee (id,employee_name) VALUES(2,'Student2')`
+`INSERT INTO employee (id,employee_name) VALUES(3,'Student3')`
+`INSERT INTO employee (id,employee_name) VALUES(3,'Student4')`
 
-`DESC group`
+Let's check the results
 
-## Delete tables
+`SELECT * from employee`
 
-`DROP TABLE group`
-
-
-
+## UPDATE
 
 Updating some records
 
-`UPDATE birdstrikes SET aircraft='Unknown' WHERE aircraft = ''`
+`UPDATE employee SET employee_name='Arnold Schwarzenegger' WHERE id = '1'`
+`UPDATE employee SET employee_name='The Other Arnold' WHERE id = '2'`
+
+Let's check the results
+
+`SELECT * from employee`
+
+## DELETE 
 
 Deleting some records
 
-`DELETE FROM birdstrikes WHERE aircraft = 'Unknown'`
+`DELETE FROM employee WHERE employee_name LIKE '%Arnold%'
 
 
-`CREATE TABLE User (ID INTEGER NOT NULL, USERNAME VARCHAR(255) NOT NULL)`
-
-`CREATE TABLE User (ID INTEGER NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY(ID))`
 
 
 
