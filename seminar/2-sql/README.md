@@ -42,6 +42,38 @@ Count number of distinct states
 
 ### Exercise 1: How many distinct 'aircraft' we have in the database?
 
+## MAX, AVG, SUM
+
+The highest repair cost of a birdstrike accident
+
+`SELECT MAX(cost) FROM birdstrikes`
+
+The average repair cost of a birdstrike accident
+
+`SELECT MAX(cost) FROM birdstrikes`
+
+The sum of all repair costs of birdstrikes accidents
+
+`SELECT SUM(cost) FROM birdstrikes`
+
+Aliassing
+
+`SELECT MAX(cost) as higest_cost FROM birdstrikes`
+
+Speed in this database is measured in KNOTS. Let's transform to KMH. 1 KNOT = 1.853 KMH
+
+`SELECT (AVG(speed)*1.852) as avg_kmh FROM birdstrikes`
+
+
+### Exercise 2: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename to 'lowest_speed'
+
+
+## GROUP BY
+
+What is the lowest for the rest of the aircraft?
+
+SELECT MIN(speed), aircraft from birdstrikes group by aircraft
+
 
 
 
