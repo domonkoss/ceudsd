@@ -132,11 +132,13 @@ Insert lines in employee table one by one
 
 `INSERT INTO employee (id,employee_name) VALUES(3,'Student3')`
 
-`INSERT INTO employee (id,employee_name) VALUES(3,'Student4')`
-
 Let's check the results
 
-`SELECT * from employee`
+`SELECT * FROM employee`
+
+What happens if you try this (and why)?
+
+`INSERT INTO employee (id,employee_name) VALUES(3,'Student4')`
 
 ## UPDATE
 
@@ -148,7 +150,7 @@ Updating some records
 
 Let's check the results
 
-`SELECT * from employee`
+`SELECT * FROM employee`
 
 ## DELETE 
 
