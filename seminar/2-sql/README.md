@@ -160,7 +160,7 @@ Deleting some records
 
 `DELETE FROM employee WHERE employee_name LIKE '%Arnold%'`
 
-
+`DROP TABLE employee`
 
 
 
