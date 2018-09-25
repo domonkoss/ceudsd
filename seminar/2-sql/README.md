@@ -1,3 +1,45 @@
+#Altering your data
+
+Updating some records
+
+`UPDATE birdstrikes SET aircraft='Unknown' WHERE aircraft = ''`
+
+Deleting some records
+
+`DELETE FROM birdstrikes WHERE aircraft = 'Unknown'`
+
+
+#Groupping and aggregation
+
+Countint the number of records
+
+SELECT COUNT(*) FROM birdstrikes
+
+Simple aggregations
+
+SELECT MAX(cost) FROM birdstrikes
+
+SELECT state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state ORDER BY state
+
+# Aggregation and grouping
+
+Multiple aggregate functions:
+
+SELECT state, aircraft, COUNT(*), MAX(cost), MIN(cost), AVG(cost) FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft
+
+Sometimes it doesn't work:
+
+SELECT aircraft, state, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state ORDER BY state
+
+Let's fix it: SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes GROUP BY state, aircraft ORDER BY state, aircraft
+
+You can filter here, too: SELECT state, aircraft, MAX(cost) AS max_cost FROM birdstrikes WHERE state LIKE 'A%' GROUP BY state, aircraft ORDER BY state, aircraft
+
+Advanced groupping - HAVING SELECT state, COUNT(*) FROM birdstrikes GROUP BY state HAVING COUNT(*) > 100
+
+SELECT state, COUNT(*) FROM birdstrikes WHERE state != '' GROUP BY state HAVING COUNT(*) > 100
+
+
 # A bit more advanced SQL
 
 ## Group by revisited
