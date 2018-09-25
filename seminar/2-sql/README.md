@@ -87,7 +87,7 @@ Let's fix it:
 
 ## HAVING
 
-### Exercice 5: >>SELECT AVG(speed),state FROM birdstrikes GROUP BY state<< what is the result of this query
+### Exercise 5: >>SELECT AVG(speed),state FROM birdstrikes GROUP BY state<< what is the result of this query
 
 What if I want AVG speed for states which has 'island' on their name:
 
@@ -98,11 +98,10 @@ Crashbummbang! The correct keyword after GROUP BY is HAVING
 `SELECT AVG(speed),state FROM birdstrikes GROUP BY state HAVING state LIKE '%island%'`
 
 
-### Exercice 6: What the highest AVG speed of the states with names less than 5 characters?
+### Exercise  6: What the highest AVG speed of the states with names less than 5 characters?
 
 
-
-# Data write
+# Writing data into the Database
 
 ## COPY TABLE
 `CREATE TABLE new_birdstrikes LIKE birdstrikes`
@@ -169,7 +168,7 @@ Deleting some records
 * Insert 2 lines in every table (Beware of the order you insert them)
 * Delete one line from Artists. What happens and why?
 
-* Create as much complicated select you can on birdstrikes (Use MySQL refference manual: https://dev.mysql.com/doc/refman/8.0/en/)
+* Create as much complicated SELECT as you can on birdstrikes (Use MySQL reference manual: https://dev.mysql.com/doc/refman/8.0/en/)
 
 
 
