@@ -156,7 +156,9 @@ Let's check the results
 
 Deleting some records
 
-`DELETE FROM employee WHERE employee_name LIKE '%Arnold%'
+`DELETE FROM employee WHERE id = 3`
+
+`DELETE FROM employee WHERE employee_name LIKE '%Arnold%'`
 
 
 
