@@ -164,7 +164,8 @@ Deleting some records
 
 # HOMEWORK! (Submit to moodle by 2nd of October 21:00)
 
-* Create the tables of the first schema from this article: https://database.guide/what-is-a-database-schema/ (Album/Genre/Artists)
+* Read this article: https://database.guide/what-is-a-database-schema/
+* Create the tables of the first schema from this article (Album/Genre/Artists)
 * Insert 2 lines in every table (Beware of the order you insert them)
 * Delete one line from Artists. What happens and why?
 
