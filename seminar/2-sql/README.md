@@ -6,7 +6,7 @@ Counting the number of records
 
 `SELECT COUNT(*) FROM birdstrikes`
 
-### Exercise 1: Let's find a column where we have nulls. How you do that?
+### Exercise 1: Let's find a column in birdstrikes where we have nulls. How you do that?
 
 Says 'state' can be NULL, so let's try:
 
