@@ -6,6 +6,9 @@ Counting the number of records
 
 `SELECT COUNT(*) FROM birdstrikes`
 
+COUNT(*) - counts the number of records
+COUNT(column) - counts the number of not NULL records for the givven column
+
 ### Exercise 1: Let's find a column in birdstrikes where we have nulls. How you do that?
 
 Check if in 'state' we actually have NULL or not (Remember last seminar!)
@@ -16,7 +19,7 @@ Let's try 'reported_date'
 
 `SELECT reported_date FROM birdstrikes WHERE reported_date IS NULL`
 
-Now let's count 'reported_date'.  COUNT(*) > COUNT(reported_date) why? 
+Now let's count 'reported_date'.  
 
 `SELECT COUNT(reported_date) FROM birdstrikes`
 
