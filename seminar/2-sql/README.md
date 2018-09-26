@@ -66,11 +66,9 @@ How many observation days we have in birdstrikes
 
 ## GROUP BY
 
-What is the lowest for the rest of the aircraft?
+What is the lowest speed by aircraft type?
 
 `SELECT MIN(speed), aircraft from birdstrikes group by aircraft`
-
-`SELECT AVG(cost), COUNT(*), phase_of_flight aircraft from birdstrikes group by phase_of_flight`
 
 ### Exercise 4: Which phase_of_flight has the least of incidents? 
 ### Exercice 5: What is the highest average cost by phase_of_flight?
