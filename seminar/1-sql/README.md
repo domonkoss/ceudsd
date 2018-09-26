@@ -196,4 +196,10 @@ Works with integers as well
 
 * Order the previous query by cost in descending order and limit to 10 entries. Send us the "id" the "bird_size" of the 9th entry?
 
+## SOLUTION
+
+* `SELECT * FROM birdstrikes WHERE flight_date < DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000)`
+
+
+* 56, Large  `SELECT * FROM birdstrikes WHERE flight_date < DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000) ORDER BY cost DESC LIMIT 10;`
 
