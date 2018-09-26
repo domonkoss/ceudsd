@@ -8,7 +8,7 @@ Counting the number of records
 
 ### Exercise 1: Let's find a column in birdstrikes where we have nulls. How you do that?
 
-Last seminar: check if in 'state' we actually have NULL or not
+Check if in 'state' we actually have NULL or not (Remember last seminar!)
 
 `SELECT state FROM birdstrikes WHERE state IS NULL`
 
@@ -20,7 +20,7 @@ Now let's count 'reported_date'.  COUNT(*) > COUNT(reported_date) why?
 
 `SELECT COUNT(reported_date) FROM birdstrikes`
 
-Last seminar: How do we list the distinct states ?
+How do we list all distinct states? (Remember last seminar!)
 
 `SELECT DISTINCT(state) FROM birdstrikes`
 
