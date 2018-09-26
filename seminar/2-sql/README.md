@@ -10,7 +10,7 @@ COUNT(*) - counts the number of records
 
 COUNT(column) - counts the number of not NULL records for the givven column
 
-### Exercise 1: Let's find a column in birdstrikes where we have nulls. How you do that?
+### Exercise 1: Let's find a column in birdstrikes where we have NULLs. How you do that?
 
 Check if in 'state' we actually have NULL or not (Remember last seminar!)
 
