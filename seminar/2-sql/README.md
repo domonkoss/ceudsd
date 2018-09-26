@@ -42,7 +42,7 @@ The highest repair cost of a birdstrike accident
 
 The average repair cost of a birdstrike accident
 
-`SELECT MAX(cost) FROM birdstrikes`
+`SELECT AVG(cost) FROM birdstrikes`
 
 The sum of all repair costs of birdstrikes accidents
 
@@ -52,7 +52,7 @@ Aliassing
 
 `SELECT MAX(cost) as higest_cost FROM birdstrikes`
 
-Speed in this database is measured in KNOTS. Let's transform to KMH. 1 KNOT = 1.853 KMH
+Speed in this database is measured in KNOTS. Let's transform to KMH. 1 KNOT = 1.852 KMH
 
 `SELECT (AVG(speed)*1.852) as avg_kmh FROM birdstrikes`
 
@@ -65,7 +65,7 @@ How many observation days we have in birdstrikes
 `SELECT DATEDIFF(MAX(reported_date),MIN(reported_date)) from birdstrikes`
 
 
-### Exercise 3: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename to 'lowest_speed'
+### Exercise 3: List the lowest speed and aircraft where the implicated aircraft was 'C' and rename it to 'lowest_speed'
 
 
 ## GROUP BY
