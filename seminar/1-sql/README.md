@@ -198,8 +198,8 @@ Works with integers as well
 
 ## SOLUTION
 
-* `SELECT * FROM birdstrikes WHERE flight_date < DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000)`
+* `SELECT * FROM birdstrikes WHERE flight_date > DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000)`
 
 
-* 56, Large  `SELECT * FROM birdstrikes WHERE flight_date < DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000) ORDER BY cost DESC LIMIT 10;`
+* 87329, Medium  `SELECT * FROM birdstrikes WHERE flight_date > DATE_SUB(NOW(),INTERVAL 18 YEAR) AND airline LIKE '%america%' AND (bird_size IN ("Small","Medium") OR cost<1000) ORDER BY cost DESC LIMIT 10;`
 
