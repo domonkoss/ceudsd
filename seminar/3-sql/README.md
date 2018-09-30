@@ -1,6 +1,6 @@
-# Creating a new database
+# Creating and importing a new tables
 
-We will actually add a new set of tables form a World Bank database. Normally this should be batch run of an .sql file. 
+We will add a new set of tables form a World Bank database. Normally this should be batch run of an .sql file. 
 
 In our case this is the worldbank.sql added in this folder.
 
@@ -17,7 +17,7 @@ Before we start, lets make sure the loading wont fail if in the csv we have empt
 
 `SET sql_mode = '';`
 
-Now lets do the first table cities
+Now lets do the first table called `cities`
 
 ```
 CREATE TABLE cities (
