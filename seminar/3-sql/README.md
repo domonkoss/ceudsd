@@ -78,10 +78,10 @@ FROM  countries
 
 Using the populations table focused only for the year 2015, create a new field AS popsize_group to organize population size into
 
-'large' (> 50 million),
+* 'large' (> 50 million),
 
-'medium' (> 1 million), and
+* 'medium' (> 1 million), and
 
-'small' groups.
+* 'small' groups.
 
 Select only the country code, population size, and this new popsize_group as fields.
