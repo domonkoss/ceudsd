@@ -120,9 +120,25 @@ ORDER BY cities.country_code
 ## Exercise 2
 
 List GDP per capita by spoken language. 
+
 Hints: 
 * you have to use economies and language table
 * you have to aggregate by spoken language
+
+## MULTIPLE INNER JOINS
+
+Syntax form
+```
+SELECT *
+FROM left_table
+INNER JOIN right_table
+ON left_table.id = right_table.id
+INNER JOIN another_table
+ON left_table.id = another_table.id;
+```
+
+## Exercise 3
+Using multiple inner joins list city names, belongig country, capital of the country and inflation rate for the given country. In which city we had the lowest inflation? Send me the SQL query and the city name.
 
 
 
