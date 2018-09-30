@@ -243,7 +243,9 @@ where year = 2010 LIMIT 5;
 # HOMEWORK! (Submit to moodle by 9nd of October 21:00)
 
 * List the spoken languages for countries and the usage of the language within countries in percentage. Send us the query.
-* Edit worldbank.sql and add FOREIGN KEY Constraints to the tables we created today. Send us the result .sql
+* Add FOREIGN KEY Constraints to the tables we created today
+  * Method1: Drop tables and add the keys to worldbank.sql. Send us the new worldbank.sql
+  * Method2: Use ALTER. Send us the ALTER scripts.
 * Schema modeling exercise
   * Download MySQL Workbench 8.0 https://dev.mysql.com/downloads/workbench/
   * Create New Model
