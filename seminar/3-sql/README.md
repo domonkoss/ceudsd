@@ -6,17 +6,16 @@ In our case this is the worldbank.sql added in this folder.
 
 For each table we will do the following steps:
 
-1. Run CREATE TABLE table_name command
-2. Describe table_name (to check the table was indeed created)
-3. LOAD DATA INFILE ... (to load the preloaded csv data into the table)
-4. SELECT * FROM table_name
+1. Run `CREATE TABLE table_name` command
+2. `DESCRIBE table_name` (to check the table was indeed created)
+3. `LOAD DATA INFILE ...` (to load the preloaded csv data into the table)
+4. `SELECT * FROM table_name`
 
 We will do this steps for 6 tables: cities, countries,languages,economies,currencies,populations
 
 Before we start, lets make sure the loading wont fail if in the csv we have empty values
 
 `SET sql_mode = '';`
-
 
 Now lets do the first table cities
 
@@ -30,10 +29,15 @@ CREATE TABLE cities (
   PRIMARY KEY(city_name)
 );
 ```
+Check if the table was created
 
 `DESCRIBE cities`
 
+Load cities.csv preloaded on the HDD into cities table. The csv fields are delimited with ',' the entries with '\n' and the first line is header
+
 `LOAD DATA INFILE '/var/lib/mysql-files/cities.csv' INTO TABLE cities FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES`
+
+Check if the data was loaded
 
 `SELECT * FROM cities`
 
