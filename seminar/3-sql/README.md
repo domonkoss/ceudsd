@@ -6,13 +6,9 @@ Form
 
 ```
 CASE expression
-
-   WHEN test THEN result
-   
-   …
-   
-   ELSE otherResult
-   
+    WHEN test THEN result
+    …
+    ELSE otherResult
 END
 ```
 
@@ -29,7 +25,6 @@ SELECT country_name, continent, country_code, surface_area,
     ELSE 
          'small'
     END
-    AS geosize_group
-   
+    AS geosize_group   
 FROM  countries
 ```
