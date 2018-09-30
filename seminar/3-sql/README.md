@@ -187,3 +187,58 @@ WHERE country_code = '"ARE"'
 ORDER BY country_code
 ```
 
+## LEFT JOIN
+
+Inner join countries and currencies from North America
+
+```
+SELECT country_name, region, basic_unit
+FROM countries
+INNER JOIN currencies
+USING (country_code)
+WHERE region = '"North America"' 
+ORDER BY region;
+```
+
+Same with left join
+
+```
+SELECT country_name,region, basic_unit
+FROM countries
+LEFT JOIN currencies
+USING (country_code)
+WHERE region = '"North America"' 
+ORDER BY region;
+```
+
+Same with left join with if null check 
+
+```
+SELECT country_name, region, basic_unit
+FROM countries
+LEFT JOIN currencies
+USING (country_code)
+WHERE region = '"North America"' AND currencies.country_code IS NULL
+ORDER BY region;
+```
+
+## Exercise 4
+List the spoken languages for countries and the usage of the language within countries in percentage
+
+## Exercise 5
+Left join countries with economies. List country_name, region, gdp_percapita for the first 5 records of year 2010. 
+
+
+## RIGHT JOIN
+
+Rearly used. Its is a mirror of left join
+
+The result of Exercise 5 with right join
+
+```
+SELECT country_name, region, gdp_percapita
+FROM economies 
+RIGHT JOIN countries 
+USING(country_code)
+where year = 2010 LIMIT 5;
+```
