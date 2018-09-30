@@ -1,4 +1,4 @@
-# Creating and importing a new tables
+# New data from World Bank
 
 We will add a new set of tables form a World Bank database. Normally this should be batch run of an .sql file. 
 
