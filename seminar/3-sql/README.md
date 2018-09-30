@@ -138,7 +138,7 @@ ON left_table.id = another_table.id;
 ```
 
 ## Exercise 3
-Using multiple inner joins list city names, belongig country, capital of the country and inflation rate for the given country. In which city we had the lowest inflation? Send me the SQL query and the city name.
+Using multiple inner joins list city names, belonging country, capital of the country and inflation rate for the given country. In which city we had the lowest inflation? Send me the SQL query and the city name.
 
 
 ## USING
