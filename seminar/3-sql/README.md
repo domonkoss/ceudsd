@@ -108,7 +108,7 @@ INNER JOIN countries
 ON cities.country_code = countries.country_code
 ```
 
-Join selected fields and order by a field. List all country codes from country tables which has related cities in city table. Show country code and city name. Order by country code. 
+Join selected fields. List all country codes from country tables which has related cities in city table. Show country code and city name. Order by country code. 
 ```
 SELECT countries.country_code, cities.city_name
 FROM cities 
@@ -116,3 +116,13 @@ INNER JOIN countries
 ON cities.country_code = countries.country_code
 ORDER BY cities.country_code
 ```
+
+## Exercise 2
+
+List GDP per capita by spoken language. 
+Hints: 
+* you have to use economies and language table
+* you have to aggregate by spoken language
+
+
+
