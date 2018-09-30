@@ -141,4 +141,49 @@ ON left_table.id = another_table.id;
 Using multiple inner joins list city names, belongig country, capital of the country and inflation rate for the given country. In which city we had the lowest inflation? Send me the SQL query and the city name.
 
 
+## USING
+
+This how we can inner join countries with languages
+```
+SELECT *
+FROM countries 
+INNER JOIN languages 
+ON countries.country_code = languages.country_code
+```
+
+The is how we count the number of result records for the previous query
+```
+SELECT COUNT(*)
+FROM countries 
+INNER JOIN languages 
+ON countries.country_code = languages.country_code
+```
+
+Now, there is a shorcut if the key of the left table and the key of the right table has the same name:
+
+```
+SELECT COUNT(*)
+FROM countries 
+INNER JOIN languages 
+USING (country_code)
+```
+
+## SELF JOIN
+
+In cities table we have 2 cities for United Arab Emirates (ARE):
+
+`SELECT * FROM cities WHERE country_code = '"ARE"'`  
+
+Let's create a list with all combination these 2 cities
+
+```
+SELECT p1.country_code, 
+       p1.city_name,
+       p2.city_name
+FROM cities AS p1
+INNER JOIN cities AS p2
+USING(country_code)
+WHERE country_code = '"ARE"' 
+ORDER BY country_code
+```
 
