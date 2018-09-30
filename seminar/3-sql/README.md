@@ -48,7 +48,7 @@ Repeat this for the remaining 5 tables.
 
 ## CASE
 
-Form
+Syntax form
 
 ```
 CASE expression
@@ -85,3 +85,33 @@ Using the populations table focused only for the year 2015, create a new field A
 * 'small' groups.
 
 Select only the country code, population size, and this new popsize_group as fields.
+
+# Joins
+
+## INNER JOIN
+
+Syntax form
+```
+SELECT *
+FROM left_table
+INNER JOIN right_table
+ON left_table.id = right_table.id;
+```
+
+
+Join all fields
+
+```
+SELECT *
+FROM cities 
+INNER JOIN countries 
+ON cities.country_code = countries.country_code
+```
+
+Join selected fields
+```
+SELECT countries.country_code, cities.city_name
+FROM cities 
+INNER JOIN countries 
+ON cities.country_code = countries.country_code
+```
