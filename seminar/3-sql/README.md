@@ -228,7 +228,7 @@ Left join countries with economies. List country_name, region, gdp_percapita for
 
 ## RIGHT JOIN
 
-Rearly used. Its is a mirror of left join
+Rarely used. Its is a mirror of left join
 
 The result of Exercise 5 with right join
 
@@ -250,7 +250,7 @@ where year = 2010 LIMIT 5;
   * Download MySQL Workbench 8.0 https://dev.mysql.com/downloads/workbench/
   * Create New Model
   * Add table cities, countries, economies 
-  * Visialize on EER Diagram 
+  * Visualize on EER Diagram 
   * Send us the diagram in a picture format
 
 
