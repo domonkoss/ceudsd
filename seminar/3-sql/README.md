@@ -1,3 +1,45 @@
+# Creating a new database
+
+We will actually add a new set of tables form a World Bank database. Normally this should be batch run of an .sql file. 
+
+In our case this is the worldbank.sql added in this folder.
+
+For each table we will do the following steps:
+
+1. Run CREATE TABLE table_name command
+2. Describe table_name (to check the table was indeed created)
+3. LOAD DATA INFILE ... (to load the preloaded csv data into the table)
+4. SELECT * FROM table_name
+
+We will do this steps for 6 tables: cities, countries,languages,economies,currencies,populations
+
+Before we start, lets make sure the loading wont fail if in the csv we have empty values
+
+`SET sql_mode = '';`
+
+
+Now lets do the first table cities
+
+```
+CREATE TABLE cities (
+  city_name               VARCHAR(255),
+  country_code            VARCHAR(255),
+  city_proper_pop         REAL,
+  metroarea_pop           REAL NULL,
+  urbanarea_pop           REAL,
+  PRIMARY KEY(city_name)
+);
+```
+
+`DESCRIBE cities`
+
+`LOAD DATA INFILE '/var/lib/mysql-files/cities.csv' INTO TABLE cities FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES`
+
+`SELECT * FROM cities`
+
+Repeat this for the remaining 5 tables. 
+
+
 # CONDITIONAL LOGIC 
 
 ## CASE
@@ -12,6 +54,7 @@ CASE expression
 END
 ```
 
+Lets create a new field base on surface and name it geosize_group
 
 ```
 SELECT country_name, continent, country_code, surface_area,
