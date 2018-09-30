@@ -1,8 +1,8 @@
 # New data from World Bank
 
-We will add a new set of tables form a World Bank database. Normally this should be batch run of an .sql file. 
+We will add a new set of tables form a World Bank database (http://databank.worldbank.org/data/databases)
 
-In our case this is the worldbank.sql added in this folder.
+Normally this should be batch run of an .sql file. In our case this is the worldbank.sql added in this folder. This time we will run the content of the .sql file command by command. 
 
 For each table we will do the following steps:
 
