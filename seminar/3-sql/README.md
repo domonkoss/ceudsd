@@ -11,9 +11,9 @@ For each table we will do the following steps:
 3. `LOAD DATA INFILE ...` (to load the preloaded csv data into the table)
 4. `SELECT * FROM table_name`
 
-We will do this steps for 6 tables: cities, countries,languages,economies,currencies,populations
+We will do these steps for 6 tables: cities, countries,languages,economies,currencies,populations
 
-Before we start, lets make sure the loading wont fail if in the csv we have empty values
+Before we start, lets make sure the loading won't fail, if in the csv we have empty values
 
 `SET sql_mode = '';`
 
