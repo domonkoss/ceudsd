@@ -4,7 +4,8 @@
 
 Form
 
-`CASE expression
+```
+CASE expression
 
    WHEN test THEN result
    
@@ -12,10 +13,12 @@ Form
    
    ELSE otherResult
    
-END`
+END
+```
 
 
-`SELECT country_name, continent, country_code, surface_area,
+```
+SELECT country_name, continent, country_code, surface_area,
     CASE WHEN surface_area  > 2000000
         THEN
             'large'
@@ -28,4 +31,5 @@ END`
     END
     AS geosize_group
    
-FROM  countries`
+FROM  countries
+```
