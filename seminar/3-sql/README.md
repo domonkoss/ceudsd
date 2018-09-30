@@ -172,7 +172,7 @@ USING (country_code)
 
 In cities table we have 2 cities for United Arab Emirates (ARE):
 
-`SELECT * FROM cities WHERE country_code = '"ARE"'`  
+`SELECT * FROM cities WHERE country_code = 'ARE'`  
 
 Let's create a list with all combination these 2 cities
 
@@ -183,7 +183,7 @@ SELECT p1.country_code,
 FROM cities AS p1
 INNER JOIN cities AS p2
 USING(country_code)
-WHERE country_code = '"ARE"' 
+WHERE country_code = 'ARE' 
 ORDER BY country_code
 ```
 
@@ -196,7 +196,7 @@ SELECT country_name, region, basic_unit
 FROM countries
 INNER JOIN currencies
 USING (country_code)
-WHERE region = '"North America"' 
+WHERE region = 'North America' 
 ORDER BY region;
 ```
 
@@ -207,7 +207,7 @@ SELECT country_name,region, basic_unit
 FROM countries
 LEFT JOIN currencies
 USING (country_code)
-WHERE region = '"North America"' 
+WHERE region = 'North America' 
 ORDER BY region;
 ```
 
@@ -218,7 +218,7 @@ SELECT country_name, region, basic_unit
 FROM countries
 LEFT JOIN currencies
 USING (country_code)
-WHERE region = '"North America"' AND currencies.country_code IS NULL
+WHERE region = 'North America' AND currencies.country_code IS NULL
 ORDER BY region;
 ```
 
