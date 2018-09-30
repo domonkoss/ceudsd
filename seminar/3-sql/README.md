@@ -246,11 +246,11 @@ where year = 2010 LIMIT 5;
 * List the spoken languages for countries and the usage of the language within countries in percentage
 
 Extra:
-** Download MySQL Workbench 8.0 https://dev.mysql.com/downloads/workbench/
-** Create New Model
-** Add table cities, countries, economies 
-** Visialize on EER Diagram 
-** Send me the diagram in a picture format
+  * Download MySQL Workbench 8.0 https://dev.mysql.com/downloads/workbench/
+  * Create New Model
+  * Add table cities, countries, economies 
+  * Visialize on EER Diagram 
+  * Send me the diagram in a picture format
 
 
 
