@@ -108,10 +108,11 @@ INNER JOIN countries
 ON cities.country_code = countries.country_code
 ```
 
-Join selected fields
+Join selected fields and order by a field.List all country codes from country tables which has related cities in city table. 
 ```
 SELECT countries.country_code, cities.city_name
 FROM cities 
 INNER JOIN countries 
 ON cities.country_code = countries.country_code
+ORDER BY cities.country_code
 ```
