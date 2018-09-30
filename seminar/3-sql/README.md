@@ -5,9 +5,13 @@
 Form
 
 `CASE expression
+
    WHEN test THEN result
+   
    …
+   
    ELSE otherResult
+   
 END`
 
 
