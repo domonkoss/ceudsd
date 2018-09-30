@@ -44,7 +44,7 @@ Check if the data was loaded
 Repeat this for the remaining 5 tables. 
 
 
-# CONDITIONAL LOGIC 
+# Conditional logic
 
 ## CASE
 
