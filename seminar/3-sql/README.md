@@ -35,7 +35,7 @@ Check if the table was created
 
 Load cities.csv preloaded on the HDD into cities table. The csv fields are delimited with ',' the entries with '\n' and the first line is header
 
-`LOAD DATA INFILE '/var/lib/mysql-files/cities.csv' INTO TABLE cities FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES`
+`LOAD DATA INFILE '/var/lib/mysql-files/cities.csv' INTO TABLE cities FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES`
 
 Check if the data was loaded
 
