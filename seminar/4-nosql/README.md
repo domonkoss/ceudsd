@@ -129,55 +129,55 @@ SOLR has different connectors to programming languages. For simple query testing
 
 The simplest query (the result is limited by default to 10):
 ```
-http://ceudsd.net/solr/dsdcore/select?q=*:*
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*
 ```
 
 Same query, but now limited to 3 results:
 ```
-http://ceudsd.net/solr/dsdcore/select?q=*:*&rows=3
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3
 ```
 
 Same query, but the output is CSV:
 ```
-http://ceudsd.net/solr/dsdcore/select?q=*:*&rows=3&wt=csv
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3&wt=csv
 ```
 
 The first query, but requesting only one field of the document (year):
 ```
-http://ceudsd.net/solr/dsdcore/select?q=*:*&fl=year
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year
 ```
 
 The first query, but requesting only the fields starting with “d”:
 ```
-http://ceudsd.net/solr/dsdcore/select?q=*:*&fl=d*
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
 #### Facests
 Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
 ```
-http://ceudsd.net/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
 ```
 
 #### Ranges 
 Same query as before, but filter in only the hours between 0 and 6 and switch off the listing:
 ```
-http://ceudsd.net/solr/dsdcore/select?facet.field=hour&facet=on&q=hour:[0 TO 6]&rows=0
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=hour&facet=on&q=hour:[0 TO 6]&rows=0
 ```
 
 Show me the first 10 results from 4 years to current time. Also return the facets for time_hour:
 ```
-http://ceudsd.net/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-4YEARS TO *]&rows=10
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-4YEARS TO *]&rows=10
 ```
 
 #### Fuzzy
 Show me the tailnum facets for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:
 ```
-http://ceudsd.net/solr/dsdcore/select?facet.field=tailnum&facet=on&q=tailnum:?2??jb&rows=0
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=tailnum&facet=on&q=tailnum:?2??jb&rows=0
 ```
 
 Show me destinations where the destination contains “ac” anywhere: 
 ```
-http://ceudsd.net/solr/dsdcore/select?fl=dest&q=dest:ac~1
+http://ceudsd.net:8081/solr/dsdcore/select?fl=dest&q=dest:ac~1
 ```
 
 ### ***Exercise***
