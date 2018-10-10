@@ -142,7 +142,8 @@ Same query, but the output is CSV:
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3&wt=csv
 ```
 
-The first query, but requesting only one field of the document (year):
+Same as the first query, but requesting only one field of the document (year):
+
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year
 ```
@@ -154,15 +155,30 @@ Same as the first query, but requesting only the fields starting with “d”:
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
-#### Ranges 
-Same query as before, but filter in only the hours between 0 and 6 and switch off the listing:
+Same as the first query, but requesting two fields of the document (year,origin):
 ```
-http://ceudsd.net:8081/solr/dsdcore/select?facet.field=hour&facet=on&q=hour:[0 TO 6]&rows=0
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year,origin
+```
+[In SQL would be something like this:
+`SELECT year,origin FROM nycflights`]
+
+
+Sort by distance in descending order:
+```
+http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=5&sort=distance desc
 ```
 
-Show me the first 10 results from 5 years to current time. Also return the facets for time_hour:
+
+#### Ranges 
+Return the documents where hour is between 0 and 6, show only hour field.
 ```
-http://ceudsd.net:8081/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-5YEARS TO *]&rows=10
+http://ceudsd.net:8081/solr/dsdcore/select?fl=hour&q=hour:[0 TO 6]
+```
+
+Return the documents from this last 5 years, show only time_hour field.
+
+```
+http://ceudsd.net:8081/solr/dsdcore/select?fl=time_hour&q=time_hour:[NOW-5YEARS TO *]
 ```
 
 #### Fuzzy
