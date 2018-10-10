@@ -234,8 +234,18 @@ RETURN o
 
 
 
-### ***Exercise 5***
-...
+### ***Exercise 6***
+RETURN THE FIRST 25 ADDRESS NODE
+
+### ***Exercise 7***
+HOW MANY PROPERTIES AN ADDRESS NODE HAS? 
+
+### ***Exercise 8***
+RETURN THE FIRST 30 COUNTRIES OF THE ADDRESS NODE
+
+### ***Exercise 9***
+HOW MANY ADDRESS NODES HAVE 'Monaco' in their address property?
+
 
 
 Double MATCH, find the officers from Hungary and the Entities linked to them:
@@ -262,7 +272,7 @@ MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
 RETURN o,c
 ```
 
-### ***Exercise 6***
+### ***Exercise 10***
 TRANSLATE THIS CYPHER QUERY TO SQL AS CLOSE AS YOU CAN.
 ```
 MATCH (n:Officer) WHERE exists(n.countries)
@@ -298,7 +308,7 @@ MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
 
-### ***Exercise 7***
+### ***Exercise 11***
 List the name and degree of the top 10 most connected Officers from Romania.Tell me the no1.
 
 
