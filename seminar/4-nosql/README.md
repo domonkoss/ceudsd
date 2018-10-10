@@ -193,9 +193,14 @@ http://ceudsd.net:8081/solr/dsdcore/select?fl=dest&q=dest:ac~1
 ```
 
 #### Facets
-Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
+Give me a document list when no filter and return the facets for "dest" and “hour”:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
+```
+
+Give me a document list when no filter and return the facets for "dest" and “hour”:
+```
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=origin:lgw
 ```
 
 ### ***Exercise 4***
