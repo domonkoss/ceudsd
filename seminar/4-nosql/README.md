@@ -149,7 +149,7 @@ http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year
 [In SQL would be something like this:
 `SELECT year FROM nycflights`]
 
-The first query, but requesting only the fields starting with “d”:
+Same as the first query, but requesting only the fields starting with “d”:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=d*
 ```
