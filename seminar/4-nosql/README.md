@@ -174,7 +174,7 @@ Show me destinations where the destination contains “ac” anywhere:
 http://ceudsd.net:8081/solr/dsdcore/select?fl=dest&q=dest:ac~1
 ```
 
-### ***Exercise 3***
+### ***Exercise 4***
 HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?
 
 <a name="neo4j"/>
@@ -267,7 +267,7 @@ MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
 
-### ***Exercise***
+### ***Exercise 5***
 List the name and degree of the top 10 most connected Officers from Romania.Tell me the no1.
 
 
