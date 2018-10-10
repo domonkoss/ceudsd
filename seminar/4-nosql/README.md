@@ -298,7 +298,7 @@ MATCH (n)
 RETURN DISTINCT labels(n) 
 ```
 
-Same as before, but using using "WITH" 
+Same as before, but using "WITH" 
 ```
 MATCH (n)
 WITH labels(n) AS type
