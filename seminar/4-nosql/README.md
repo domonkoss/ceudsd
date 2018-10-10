@@ -121,25 +121,33 @@ http://yonik.com/solr/query-syntax/
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.
 
-The simplest query (the result is limited by default to 10) [SQL:SELECT * FROM nycflights]:
+The simplest query (the result is limited by default to 10):
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:* 
 ```
 
-Same query, but now limited to 3 results [SQL:SELECT * FROM nycflights LIMT 3]:
+[In SQL would be something like this:
+`SELECT * FROM nycflights`]
+
+Same query, but now limited to 3 results:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3
 ```
+
+[In SQL would be something like this:
+`SELECT * FROM nycflights LIMT 3`]
 
 Same query, but the output is CSV:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3&wt=csv
 ```
 
-The first query, but requesting only one field of the document (year) [SQL:SELECT year FROM nycflights]:
+The first query, but requesting only one field of the document (year):
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year
 ```
+[In SQL would be something like this:
+`SELECT year FROM nycflights`]
 
 The first query, but requesting only the fields starting with “d”:
 ```
@@ -195,31 +203,34 @@ https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.h
 
 #### Simple queries
 
-In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes 
-
-:
+In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes :
 
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
 
-
 [In SQL would be something like this:
 `SELECT * FROM Officer AS n LIMIT 5`]
 
-Same select but instead of node the node name is returned [SQL: SELECT name FROM Entity AS n LIMIT 25]:
+Same SELECT but instead of node the node name is returned:
 ```
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
 ```
+[In SQL would be something like this:
+`SELECT name FROM Entity AS n LIMIT 25`]
 
-We can use WHERE clause to filter our result [SQL: SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%']:
+
+We can use WHERE clause to filter our result:
 ```
 MATCH (o:Officer)
 WHERE o.countries CONTAINS 'Hungary'
 RETURN o
 ```
+
+[In SQL would be something like this:
+`SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
 
 
 Double MATCH, find the officers from Hungary and the Entities linked to them:
