@@ -278,7 +278,7 @@ RETURN o,r,c
 [In SQL would be something like this:
 `SELECT * 
 FROM Officer as o  
-INNER JOIN Entity as e 
+INNER JOIN Entity as c 
 USING (relationship)
 `
 ]
