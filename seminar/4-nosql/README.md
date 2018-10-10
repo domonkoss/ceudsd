@@ -154,7 +154,7 @@ Same as the first query, but requesting only the fields starting with “d”:
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
-#### Facests
+#### Facets
 Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
