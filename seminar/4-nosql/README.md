@@ -182,7 +182,7 @@ http://ceudsd.net:8081/solr/dsdcore/select?fl=time_hour&q=time_hour:[NOW-5YEARS 
 ```
 
 #### Fuzzy
-Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by :jb”:
+Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb"
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?fl=tailnum&q=tailnum:?2??jb
 ```
