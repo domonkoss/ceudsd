@@ -292,6 +292,19 @@ What the previous query is returning?
 
 #### Node analytics
 
+Return all node labels
+```
+MATCH (n)
+RETURN DISTINCT labels(n) 
+```
+
+Same as before, but using using "WITH" 
+```
+MATCH (n)
+WITH labels(n) AS type
+RETURN DISTINCT type
+```
+
 Show the average degree by node type:
 ```
 MATCH (n)
