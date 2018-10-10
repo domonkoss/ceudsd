@@ -233,6 +233,11 @@ RETURN o
 `SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
 
 
+
+### ***Exercise 5***
+...
+
+
 Double MATCH, find the officers from Hungary and the Entities linked to them:
 ```
 MATCH (o:Officer) 
@@ -257,15 +262,15 @@ MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
 RETURN o,c
 ```
 
-#### Advenced queries
-
-Which country has the most nodes?
+### ***Exercise 6***
+TRANSLATE THIS CYPHER QUERY TO SQL AS CLOSE AS YOU CAN.
 ```
 MATCH (n:Officer) WHERE exists(n.countries)
 RETURN n.country_codes, count(*)
 ORDER BY count(*) DESC
 LIMIT 10
 ```
+What this query is returning?
 
 
 Find the Officers called "aliyev" and Entities related to them:
@@ -293,7 +298,7 @@ MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
 
-### ***Exercise 5***
+### ***Exercise 7***
 List the name and degree of the top 10 most connected Officers from Romania.Tell me the no1.
 
 
