@@ -246,9 +246,9 @@ RETURN THE FIRST 30 COUNTRIES OF THE ADDRESS NODE
 ### ***Exercise 8***
 HOW MANY ADDRESS NODES HAS 'Mexico' OR 'Monaco' IN THEIR ADDRESS PROPERTY?
 
+####  JOINS
 
-
-Double MATCH, find the officers from Hungary and the Entities linked to them:
+Find joint/linked entities with double MATCH, find the officers from Hungary and the Entities linked to them:
 ```
 MATCH (o:Officer) 
 WHERE o.countries CONTAINS 'Hungary'
