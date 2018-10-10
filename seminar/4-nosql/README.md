@@ -200,7 +200,7 @@ http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&fac
 
 Give me a document list when no filter and return the facets for "dest" and “hour”:
 ```
-http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=origin:lgw
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=origin:JFK
 ```
 
 ### ***Exercise 4***
