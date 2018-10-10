@@ -65,33 +65,30 @@ SELECT specified columns:
 SELECT location,water_level FROM h2o_feet LIMIT 10
 ```
 
-Check distinct values of the columns
-```
-SELECT DISTINCT(*) FROM h2o_feet
-```
-
-Notice the location column is not there, because distinct can be done only on fields. “location” is tag. Distinct tag value can be listed for example by grouping. Here we used MEAN as aggregation function:
-
-```
-SELECT MEAN(water_level) FROM h2o_feet GROUP BY location 
-```
-
 Let’s try a where clause:
 ```
 SELECT *  FROM h2o_feet WHERE location = 'santa_monica' LIMIT 10
 ```
 
+Check distinct values of the columns
+
+### ***Exercise 1***
+LIST THE DISTINCT LEVEL DESCRIPTORS FOR H2O_FEET?
+
+
+MEAN as aggregation function:
+
+```
+SELECT MEAN(water_level) FROM h2o_feet GROUP BY location 
+```
+
+
+### ***Exercise 2***
+BEETWEEN 2015-08-19 AND 2015-08-27 HOW MANY DAILY H2O_FEET MEASURMENTS WERE DONE IN 'coyote_creek'
+
+
+
 #### Advanced Data Exploration
-
-Now a more complicated SELECT using aggregation:
-
-```
-SELECT COUNT(water_level) 
-  FROM h2o_feet WHERE time >= '2015-08-19T00:00:00Z' 
-  AND time <= '2015-08-27T17:00:00Z' 
-  AND location='coyote_creek' 
-  GROUP BY time(3d)
-```
 
 Arithmetic SELECT:
 ```
