@@ -280,7 +280,7 @@ RETURN n.country_codes, count(*)
 ORDER BY count(*) DESC
 LIMIT 10
 ```
-What this query is returning?
+What the previous query is returning?
 
 
 Find the Officers called "aliyev" and Entities related to them:
