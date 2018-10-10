@@ -226,6 +226,14 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
 
+[In SQL would be something like this:
+`SELECT * 
+FROM Officer as o  
+INNER JOIN Entity as e 
+USING (relationship)
+`
+]
+
 A variation of the previous one, but here the link type is specified:
 ```
 MATCH (o:Officer) 
