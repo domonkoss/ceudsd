@@ -272,6 +272,14 @@ MATCH (o)-[:DIRECTOR_OF]-(c:Entity)
 RETURN o,c
 ```
 
+Find the Officers called "aliyev" and Entities related to them:
+```
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "aliyev"
+MATCH (o)-[r]-(c:Entity)
+RETURN o,r,c
+```
+
 ### ***Exercise 9***
 TRANSLATE THIS CYPHER QUERY TO SQL AS CLOSE AS YOU CAN.
 ```
@@ -282,14 +290,7 @@ LIMIT 10
 ```
 What the previous query is returning?
 
-
-Find the Officers called "aliyev" and Entities related to them:
-```
-MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "aliyev"
-MATCH (o)-[r]-(c:Entity)
-RETURN o,r,c
-```
+#### Node analytics
 
 Show the average degree by node type:
 ```
@@ -297,8 +298,6 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
-
-#### Node analytics
 
 Calculate the degree and clustering_coefficient of a node:
 ```
