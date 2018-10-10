@@ -195,19 +195,19 @@ https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.h
 
 #### Simple queries
 
-In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes:
+In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes [SQL: SELECT * FROM Officer AS n LIMIT 5]:
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
 
-Same select but instead of node the node name is returned:
+Same select but instead of node the node name is returned [SQL: SELECT name FROM Entity AS n LIMIT 25]:
 ```
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
 ```
 
-We can use WHERE clause to filter our result:
+We can use WHERE clause to filter our result [SQL: SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%']:
 ```
 MATCH (o:Officer)
 WHERE o.countries CONTAINS 'Hungary'
