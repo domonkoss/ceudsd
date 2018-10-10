@@ -213,8 +213,6 @@ http://neo4j.com/docs/developer-manual/current/cypher/
 
 https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html
 
-
-
  
 
 #### Simple queries
