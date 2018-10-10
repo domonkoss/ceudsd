@@ -197,12 +197,16 @@ https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.h
 
 In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes 
 
-`[SQL: SELECT * FROM Officer AS n LIMIT 5]`:
+:
 
 ```
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
+
+
+[In SQL would be something like this:
+`SELECT * FROM Officer AS n LIMIT 5`]
 
 Same select but instead of node the node name is returned [SQL: SELECT name FROM Entity AS n LIMIT 25]:
 ```
