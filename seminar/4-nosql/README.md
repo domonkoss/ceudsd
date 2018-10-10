@@ -158,9 +158,9 @@ Same query as before, but filter in only the hours between 0 and 6 and switch of
 http://ceudsd.net:8081/solr/dsdcore/select?facet.field=hour&facet=on&q=hour:[0 TO 6]&rows=0
 ```
 
-Show me the first 10 results from 4 years to current time. Also return the facets for time_hour:
+Show me the first 10 results from 5 years to current time. Also return the facets for time_hour:
 ```
-http://ceudsd.net:8081/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-4YEARS TO *]&rows=10
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=time_hour&facet=on&q=time_hour:[NOW-5YEARS TO *]&rows=10
 ```
 
 #### Fuzzy
