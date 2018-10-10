@@ -154,12 +154,6 @@ Same as the first query, but requesting only the fields starting with “d”:
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=d*
 ```
 
-#### Facets
-Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
-```
-http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
-```
-
 #### Ranges 
 Same query as before, but filter in only the hours between 0 and 6 and switch off the listing:
 ```
@@ -180,6 +174,12 @@ http://ceudsd.net:8081/solr/dsdcore/select?facet.field=tailnum&facet=on&q=tailnu
 Show me destinations where the destination contains “ac” anywhere: 
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?fl=dest&q=dest:ac~1
+```
+
+#### Facets
+Besides the expected result on q=*.* (first query), return the facets for "dest" and “hour”:
+```
+http://ceudsd.net:8081/solr/dsdcore/select?facet.field=dest&facet.field=hour&facet=on&q=*:*
 ```
 
 ### ***Exercise 4***
