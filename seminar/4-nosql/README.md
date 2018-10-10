@@ -174,7 +174,7 @@ Show me destinations where the destination contains “ac” anywhere:
 http://ceudsd.net:8081/solr/dsdcore/select?fl=dest&q=dest:ac~1
 ```
 
-### ***Exercise***
+### ***Exercise 3***
 HOW MANY FLIGHTS HAVE NO ARRIVAL DELAY?
 
 <a name="neo4j"/>
