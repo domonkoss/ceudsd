@@ -121,12 +121,12 @@ http://yonik.com/solr/query-syntax/
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.
 
-The simplest query (the result is limited by default to 10) [SELECT * FROM nycflights]:
+The simplest query (the result is limited by default to 10) [SQL:SELECT * FROM nycflights]:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:* 
 ```
 
-Same query, but now limited to 3 results [SELECT * FROM nycflights LIMT 3]:
+Same query, but now limited to 3 results [SQL:SELECT * FROM nycflights LIMT 3]:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3
 ```
@@ -136,7 +136,7 @@ Same query, but the output is CSV:
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&rows=3&wt=csv
 ```
 
-The first query, but requesting only one field of the document (year) [SELECT year FROM nycflights]:
+The first query, but requesting only one field of the document (year) [SQL:SELECT year FROM nycflights]:
 ```
 http://ceudsd.net:8081/solr/dsdcore/select?q=*:*&fl=year
 ```
